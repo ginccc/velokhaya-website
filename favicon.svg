@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Background circle - brand black -->
+  <circle cx="16" cy="16" r="16" fill="#000000"/>
+  
+  <!-- Stylized "V" in brand red representing Velokhaya -->
+  <path d="M8 8 L16 24 L24 8" fill="none" stroke="#e31e24" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Wheel accent in brand yellow -->
+  <circle cx="16" cy="22" r="3" fill="none" stroke="#ffd700" stroke-width="1.5"/>
+  <circle cx="16" cy="22" r="1" fill="#ffd700"/>
+</svg>

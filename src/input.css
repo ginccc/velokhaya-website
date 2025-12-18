@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-red: #E31E24;
+  --color-brand-yellow: #FFD700;
+  --color-brand-blue: #0054A6;
+  --color-brand-black: #000000;
+  --color-brand-dark: #171717;
+  --color-brand-gray: #262626;
+
+  --font-sans: 'Inter', sans-serif;
+  
+  --image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+  }
+  
+  @keyframes slide {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+}
+
+.text-stroke {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
+}

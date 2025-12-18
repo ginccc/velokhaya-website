@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Note: This sitemap is blocked by robots.txt until launch -->
+  <url>
+    <loc>https://velokhaya.com/</loc>
+    <lastmod>2025-12-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://velokhaya.com/dna.html</loc>
+    <lastmod>2025-12-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://velokhaya.com/impact.html</loc>
+    <lastmod>2025-12-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://velokhaya.com/support.html</loc>
+    <lastmod>2025-12-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://velokhaya.com/contact.html</loc>
+    <lastmod>2025-12-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>

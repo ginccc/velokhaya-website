@@ -1,0 +1,29 @@
+# Velokhaya Life Cycling Academy
+# Pre-launch: Disallow all crawling
+
+User-agent: *
+Disallow: /
+
+# ============================================
+# PRODUCTION ROBOTS.TXT (uncomment when live)
+# ============================================
+# User-agent: *
+# Allow: /
+# Disallow: /api/
+# Disallow: /*.json$
+#
+# # AI Crawlers - Allow for discoverability
+# User-agent: GPTBot
+# Allow: /
+#
+# User-agent: Google-Extended
+# Allow: /
+#
+# User-agent: anthropic-ai
+# Allow: /
+#
+# User-agent: CCBot
+# Disallow: /
+#
+# # Sitemap location
+# Sitemap: https://velokhaya.com/sitemap.xml

@@ -1,0 +1,19 @@
+{
+  "name": "velokhaya-website",
+  "version": "1.0.0",
+  "description": "This repository contains the source code for the Velokhaya Life Cycling Academy website. The website serves as a digital hub for the organization, showcasing its \"Life Cycling\" philosophy, impact, and providing channels for support and donations.",
+  "main": "index.js",
+  "scripts": {
+    "build": "tailwindcss -i ./src/input.css -o ./css/styles.css --minify",
+    "watch": "tailwindcss -i ./src/input.css -o ./css/styles.css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.18",
+    "tailwindcss": "^4.1.18"
+  }
+}
