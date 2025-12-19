@@ -5,7 +5,7 @@
         // Amplitude
         (function(e,t){var n=e.amplitude||{_q:[],_iq:{}};var r=t.createElement("script")
         ;r.type="text/javascript"
-        ;r.integrity="sha384-hzD/WhoWvS1S3q97l94a+C46+9mN4k5X5+5+5+5+5+5+5+5+5+5+5+5+5+5+5+5"
+        ;r.integrity="sha384-YdqHVjD6IoVXU65w0u3YTeRI6MZgyc0xeXkXyGAlWBzbX+1qLD4qmayzcEF1RRLT"
         ;r.crossOrigin="anonymous";r.async=true
         ;r.src="https://cdn.eu.amplitude.com/script/c76c4b9a7b26cdce0dc37da28e6a80c9.js"
         ;r.onload=function(){if(!e.amplitude.runQueuedFunctions){
@@ -27,7 +27,7 @@
         ;if(!Object.prototype.hasOwnProperty.call(n._iq,e)){n._iq[e]={_q:[]};v(n._iq[e])
         }return n._iq[e]};e.amplitude=n})(window,document);
 
-        window.amplitude.add(window.sessionReplay.plugin({sampleRate: 1}));
+        // window.amplitude.add(window.sessionReplay.plugin({sampleRate: 1}));
         window.amplitude.init(AMPLITUDE_API_KEY, {
             "fetchRemoteConfig":true,
             "serverZone":"EU",

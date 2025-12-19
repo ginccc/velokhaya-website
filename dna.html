@@ -310,7 +310,7 @@
     </footer>
 
     <!-- Password Protection Modal -->
-    <div id="auth-modal" class="fixed inset-0 z-[100] flex items-center justify-center bg-brand-black hidden">
+    <div id="auth-modal" class="fixed inset-0 z-[10000] flex items-center justify-center bg-brand-black hidden">
         <div class="bg-brand-dark border border-white/10 rounded-3xl p-8 md:p-12 max-w-md w-full mx-4 shadow-2xl">
             <div class="text-center mb-8">
                 <img src="images/logo.png" alt="Velokhaya" class="h-16 w-auto mx-auto mb-6 opacity-80">
@@ -363,20 +363,10 @@
             const errorMsg = document.getElementById('auth-error');
             const pageContent = document.querySelectorAll('body > nav, body > main, body > footer');
 
-            function getCookie(name) {
-                const value = `; ${document.cookie}`;
-                const parts = value.split(`; ${name}=`);
-                if (parts.length === 2) return parts.pop().split(';').shift();
-                return null;
-            }
-
-            function setCookie(name, value, days) {
-                const expires = new Date(Date.now() + days * 864e5).toUTCString();
-                document.cookie = `${name}=${value}; expires=${expires}; path=/; SameSite=Lax`;
-            }
-
             function checkAccess() {
-                return getCookie(AUTH_COOKIE_NAME) === 'granted';
+                const local = localStorage.getItem(AUTH_COOKIE_NAME) === 'granted';
+                const session = sessionStorage.getItem(AUTH_COOKIE_NAME) === 'granted';
+                return local || session;
             }
 
             function hideContent() {
@@ -390,22 +380,33 @@
             function showModal() {
                 hideContent();
                 modal.classList.remove('hidden');
+                modal.style.display = 'flex';
                 document.body.style.overflow = 'hidden';
                 passwordInput.focus();
             }
 
             function hideModal() {
                 modal.classList.add('hidden');
+                modal.style.display = 'none';
                 document.body.style.overflow = '';
                 showContent();
             }
 
             function grantAccess() {
-                setCookie(AUTH_COOKIE_NAME, 'granted', 365);
+                try {
+                    localStorage.setItem(AUTH_COOKIE_NAME, 'granted');
+                    sessionStorage.setItem(AUTH_COOKIE_NAME, 'granted');
+                } catch (e) {
+                    console.error('Storage failed', e);
+                }
                 hideModal();
             }
 
-            if (!checkAccess()) {
+            if (checkAccess()) {
+                // Access already granted - just ensure modal is hidden
+                modal.classList.add('hidden');
+                modal.style.display = 'none';
+            } else {
                 showModal();
             }
 
