@@ -8,6 +8,13 @@
   --color-brand-dark: #171717;
   --color-brand-gray: #262626;
 
+  /* Cookie Banner Variables */
+  --text-main: #171717;
+  --text-subtle: #525252;
+  --accent: #E31E24;
+  --accent-darker: #cc1b20;
+  --brand-yellow: #FFD700;
+
   --font-sans: 'Inter', sans-serif;
   
   --image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
