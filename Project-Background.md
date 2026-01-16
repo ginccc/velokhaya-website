@@ -9,11 +9,11 @@ Organizational DNA & Origin: Defining the ethos, history, and leadership that ma
 Programmatic Impact: A deep dive into the operational mechanics of the cycling, education, and nutrition programs.
 Fundraising Landscape: An analysis of current revenue streams, donor behaviors, and digital gaps to be addressed by the new UX.
 Tier 1: Organizational DNA & Origin Story
-1.1 The Genesis: "Shack to Podium"
+1.1 The Genesis: "Township to Podium"
 The origin story of Velokhaya is foundational to its brand identity. It is a narrative of resilience, resourcefulness, and the transformation of a hostile environment into a training ground for champions.
 The Founding Context
 Established formally in 2003, with informal roots stretching back slightly earlier, Velokhaya emerged from the specific socio-geographic context of Khayelitsha, one of South Africa's largest and most underserved townships.2 The landscape is characterized by "loose sands" and "nondescript patches of land," terrain that would typically discourage the development of a road cycling culture, which favors smooth tarmac.1
-The founders, including community leaders and cycling enthusiasts, recognized a counter-intuitive opportunity. The very hardships of township life—the need for resilience, the ability to navigate chaos, the hunger for opportunity—were the raw ingredients for sporting excellence. The academy was founded on the premise of "Shack to Podium," a phrase that encapsulates the vertical mobility offered by the program. It signifies the journey from informal settlements (shacks) to the global stage of professional sport (the podium).1
+The founders, including community leaders and cycling enthusiasts, recognized a counter-intuitive opportunity. The very hardships of township life—the need for resilience, the ability to navigate chaos, the hunger for opportunity—were the raw ingredients for sporting excellence. The academy was founded on the premise of "Township to Podium," a phrase that encapsulates the vertical mobility offered by the program. It signifies the journey from informal settlements (townships) to the global stage of professional sport (the podium).1
 The Name: A Linguistic Bridge
 The name Velokhaya itself is a strategic asset, functioning as a linguistic bridge between the global sport of cycling and the local culture of the township.
 Velo: Derived from the French (and Latin) word for bicycle, evoking the European heritage of the Tour de France and professional cycling.

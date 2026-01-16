@@ -6,7 +6,7 @@
 
 **Mission:** To use the bicycle as a vehicle for social transformation ("Life Cycling").  
 **Core Metaphor:** "The Peloton" – A protective social structure that shields vulnerable youth from the "headwinds" of township life (crime, drugs, poverty).  
-**Slogan:** "Cycling with a Purpose" / "From Shack to Podium".
+**Slogan:** "Cycling with a Purpose" / "From Township to Podium".
 
 ## 2. Brand Identity & Design System
 
