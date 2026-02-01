@@ -7,7 +7,7 @@ This repository contains the source code for the Velokhaya Life Cycling Academy 
 Velokhaya Life Cycling Academy uses cycling, education, and nutrition to raise champions on and off the bike in Khayelitsha, Cape Town. This website is designed to shift the narrative from "charity" to "high performance," highlighting the academy's role in producing elite human capital.
 
 **Mission:** To use the bicycle as a vehicle for social transformation.  
-**Slogan:** "Cycling with a Purpose" / "From Township to Podium".
+**Slogan:** "Cycling with a Purpose".
 
 ## Features
 
