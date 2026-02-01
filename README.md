@@ -12,7 +12,7 @@ Velokhaya Life Cycling Academy uses cycling, education, and nutrition to raise c
 ## Features
 
 *   **Home (`index.html`):** Introduction to the "Peloton" metaphor and partner showcase.
-*   **Our DNA (`dna.html`):** The origin story, leadership profiles, and Hall of Fame (Nicholas Dlamini, Anita Zenani, Xolisa Makubalo).
+*   **Our DNA (`our-approach.html`):** The origin story, leadership profiles, and Hall of Fame (Nicholas Dlamini, Anita Zenani, Xolisa Makubalo).
 *   **Impact (`impact.html`):** Detailed breakdown of the three pillars: Sport (The Carrot), Education (The Purpose), and Nutrition (The Fuel).
 *   **Support (`support.html`):** Donation tiers, current campaigns (Cycle for Change, Road Safety), and international giving options (Buffalo Foundation).
 *   **Contact (`contact.html`):** Location details, contact form, and specific contact points for partnerships.
@@ -39,7 +39,7 @@ For development, it is recommended to use a local server (e.g., Live Server in V
 /
 ├── images/               # Project images and logos
 ├── contact.html          # Contact page
-├── dna.html              # History and Leadership page
+├── our-approach.html              # History and Leadership page
 ├── GEMINI.md             # AI Agent Context & Brand Guidelines
 ├── impact.html           # Impact pillars page
 ├── index.html            # Homepage

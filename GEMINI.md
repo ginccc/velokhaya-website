@@ -72,7 +72,7 @@ The brand uses a bold, primary color scheme reflecting energy and South African 
 *   **Icons:** Lucide Icons (via CDN).
 *   **Structure:**
     *   `index.html`: Hero, Hook, Partners.
-    *   `dna.html`: History, Leadership, Hall of Fame.
+    *   `our-approach.html`: History, Leadership, Hall of Fame.
     *   `impact.html`: The 3 Pillars (Sport, Education, Nutrition).
     *   `support.html`: Donation Tiers, Campaigns, International Giving.
     *   `contact.html`: Physical address, form, specific email contacts.
