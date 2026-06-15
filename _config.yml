@@ -1,8 +1,0 @@
-exclude:
-  - GEMINI.md
-  - Project-Background.md
-  - package.json
-  - package-lock.json
-  - node_modules/
-  - src/
-  - README.md

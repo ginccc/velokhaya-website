@@ -1,106 +1,89 @@
-# Velokhaya Life Cycling Academy - Project Context & Agent Guide
+# PROJECT CONTEXT: VELOKHAYA CYCLING ACADEMY
 
-## 1. Project Overview & Source of Truth
-**Reference Document:** [Project-Background.md](Project-Background.md)  
-*Always refer to the Project Background for the definitive narrative, historical facts, and strategic audit.*
+## 1. PROJECT VISION & STRATEGY
+**Current Status:** Comprehensive website refactor (Content & Design).
+**Core Objective:** Pivot the brand narrative from a "Charity/Rescue" model to a "High-Performance Academy" model.
 
-**Mission:** To use the bicycle as a vehicle for social transformation ("Life Cycling").  
-**Core Metaphor:** "The Peloton" – A protective social structure that shields vulnerable youth from the "headwinds" of township life (crime, drugs, poverty).  
-**Slogan:** "Cycling with a Purpose".
+### The Strategic Shift (Crucial)
+*   **OLD Narrative (Deprecated):** "Saving kids from the streets," "Safe Haven," "Township to Podium," "Pity," "Born in a shipping container," "The strong protect the weak."
+*   **NEW Narrative (Active):** "Cycling done with intention," "Elite Development," "Discipline & Structure," "Investment in Excellence," "Performance Philanthropy."
 
-## 2. Brand Identity & Design System
+**The Goal:** The website must feel like a professional sports team site (e.g., Ineos Grenadiers, Rapha) that happens to have a social mission. We market **Ambition**, not Pity.
 
-### Color Palette
-The brand uses a bold, primary color scheme reflecting energy and South African heritage.
-*   **Brand Red:** `#E31E24` (Primary Action / Passion / Nutrition Pillar)
-*   **Brand Yellow:** `#FFD700` (Highlight / Success / Sport Pillar)
-*   **Brand Blue:** `#0054A6` (Trust / Depth / Education Pillar)
-*   **Brand Black:** `#000000` (Backgrounds / Sophistication)
-*   **Brand Dark:** `#171717` (Secondary Backgrounds)
-*   **Brand Gray:** `#262626` (Cards / UI Elements)
+## 2. BRAND VOICE & TONE
+*   **Voice:** Stoic, Disciplined, Mechanical, Professional, Unsentimental.
+*   **Visuals:** Kinetic energy, sweat, blur, gears, focus. (No static "smiling for the camera" charity shots).
+*   **Forbidden Metaphors (Strict Rules):**
+    *   NO "Carrot and stick"
+    *   NO "Born in a container"
+    *   NO "Strong protect the weak"
+    *   NO "Feeding the hungry"
 
-### Typography
-*   **Font Family:** 'Inter', sans-serif.
-*   **Style:** Clean, modern, high-readability. Bold weights (700-900) used for impact headings.
+## 3. MASTER CONTENT DICTIONARY
+*Use these exact text strings for the website sections. Do not summarize.*
 
-### Visual Tone
-*   **Do:** High-performance, athletic, resilient, professional, "Hero's Journey".
-*   **Don't:** Pity, poverty porn, chaotic, "dusty charity".
-*   **Key Imagery:** Cyclists in formation (peloton), blurred motion (speed), intense focus, academic success (graduates).
+### A. Global Elements
+*   **Header Button:** `CONTACT VELOKHAYA`
+*   **Tagline:** `Building Champions On and Off the Bike`
 
-## 3. Target Audience & User Personas
+### B. Hero Section
+*   **Headline:** `CYCLING, DONE WITH INTENTION`
+*   **Subhead:** `Velokhaya brings together sport, education, and nutrition in a single, disciplined environment. This is where young people train seriously, learn consistently, and build the habits required for long term performance, on and off the bike.`
+*   **Tagline:** `No shortcuts. No spectacle. Just commitment, structure, and progression.`
+*   **Primary CTA:** `RIDE WITH VELOKHAYA` (Links to Donation)
+*   **Secondary CTA:** `VISIT THE ACADEMY` (Links to Contact)
 
-1.  **The Corporate Sponsor (CSI/B-BBEE Manager)**
-    *   **Goal:** Find a reliable, high-impact partner for Corporate Social Investment.
-    *   **Needs:** Governance proof, B-BBEE alignment, clear impact metrics (matric pass rates), brand visibility.
-    *   **Key Pages:** Impact, Support (Corporate Partner tier).
+### C. Identity ("Our Approach")
+*   **Headline:** `OUR APPROACH`
+*   **Body:** `Founded in Khayelitsha in 2003, Velokhaya has grown through consistency, commitment, and clear standards. Our work is defined by how we operate: structured training, shared expectations, and a long term commitment to development on and off the bike. Velokhaya is defined not by where it started, but by how it works.`
+*   **Subsection ("Moving Together"):**
+    *   **Headline:** `MOVING TOGETHER`
+    *   **Body:** `Progress in cycling is rarely made alone. Training environments matter. Standards matter. Community matters. Velokhaya is built around shared effort. Athletes train alongside peers, supported by coaches, educators, and systems that value consistency and accountability. Momentum is created through repetition, discipline, and collective focus, day after day.`
 
-2.  **The Global Cyclist (UK/International Donor)**
-    *   **Goal:** Support the sport they love in a meaningful way.
-    *   **Needs:** Emotional connection ("The Peloton"), tax efficiency (Gift Aid/Buffalo Foundation), ease of payment.
-    *   **Key Pages:** Support (International Donors), DNA (Hall of Fame).
+### D. The Origin Story & Milestones
+*   **Headline:** `THE ORIGIN STORY`
+*   **Body:** `Velokhaya was established in 2003 with a clear intention: to create a structured environment where young people could commit to cycling, education, and personal development. What began as a small operation in Khayelitsha grew through consistency and high expectations. From the outset, the emphasis was on discipline, accountability, and progression, both in sport and in learning. Over time, the programme expanded, strengthening its coaching, education, and support structures.`
+*   **Quote:** `"Cycling, education, and discipline work together. One does not exist without the others." — Sipho Mona, General Manager`
+*   **Milestones Data:**
+    *   **2003:** Established (Formal establishment in Khayelitsha).
+    *   **2015:** Education and Skills (Launch of ICT & Life Skills Centre with MTN).
+    *   **2021:** Olympic Representation (Nicholas Dlamini at Tokyo Olympics).
+    *   **2025:** Facility Development (Indoor training facility & community spinning hub).
+    *   **2026:** Expansion (Secured land in Alexandra, Johannesburg).
 
-3.  **The Local Enthusiast (Event Participant)**
-    *   **Goal:** Join a ride or support a specific campaign.
-    *   **Needs:** Event details (Spinathon), "cool factor", community belonging.
-    *   **Key Pages:** Support (Current Campaigns), Home.
+### E. The Three Pillars (Programmes)
+*   **Pillar 1: CYCLING PATHWAYS**
+    *   **Text:** `Cycling is at the centre of Velokhaya’s work. It provides challenge, competition, and a clear framework for growth. Our programmes offer structured pathways from early skill development through to elite competition.`
+    *   **Highlight (BMX):** `BMX: FOUNDATIONS OF SKILL.` (Anita Zenani, World Ranked).
+    *   **Highlight (Road):** `ROAD CYCLING: PERFORMANCE PATHWAY.` (Nicholas Dlamini, Olympian).
+*   **Pillar 2: EDUCATION, WITH EXPECTATION**
+    *   **Text:** `Education is a core part of life at Velokhaya. Training and learning sit side by side. Athletes are expected to engage fully at school and in the learning lab, supported by structured study time and academic mentorship. The same standards apply everywhere. Effort matters. Consistency matters.`
+    *   **Highlight:** `Academic support` (Partners: The Answer Series, Infinite Family).
+*   **Pillar 3: NUTRITION AS PERFORMANCE**
+    *   **Text:** `Nutrition supports training, recovery, and focus. It is part of how athletes perform and learn. Velokhaya provides regular, balanced meals as part of its daily programme, supporting consistent training and learning.`
 
-## 4. SEO & GEO Optimization Strategy
+### F. Impact & Advocacy
+*   **Headline:** `IMPACT, OVER TIME`
+*   **Stats:** `20+ Years` | `Olympic Representation` | `#6 World Ranking (BMX)` | `3 Integrated Pillars`.
+*   **Section: ROAD SAFETY AND ADVOCACY**
+    *   **Text:** `Velokhaya participates in road safety initiatives that support safer cycling environments for all road users. Through campaigns such as 'Look to Save Lives', we contribute to awareness.`
+    *   **Focus Areas:** `1.5 metre safe passing awareness` | `Anti-dooring education`
 
-### Primary Keywords (SEO)
-*   "Cycling Academy Cape Town"
-*   "Velokhaya Khayelitsha"
-*   "Sports Development NGO South Africa"
-*   "Charity Cycling Team"
-*   "Bicycle Empowerment Network"
-*   "Youth Development Khayelitsha"
+### G. Support ("Ride With Velokhaya")
+*   **Headline:** `RIDE WITH VELOKHAYA`
+*   **Subhead:** `Behind every strong programme is a group of people who believe in consistency, discipline, and long term development.`
+*   **Card 1 (R200/mo):** `MONTHLY PROGRAMME SUPPORT`. "Support the work that happens every day. Contributions support core operations."
+*   **Card 2 (R1,000/mo):** `DEVELOPMENT PATHWAY SUPPORT`. "Contribute at a deeper level. Supports the full set of inputs required for athletes to train, study, and compete. Includes annual briefing with leadership."
+*   **Card 3:** `CORPORATE PARTNERSHIPS`. "Partner with a proven, long term development programme."
 
-### Local Relevance (GEO)
-*   **Location:** Khayelitsha, Cape Town, Western Cape, South Africa.
-*   **Landmarks:** Khayelitsha Stadium, Phendula Crescent.
-*   **Context:** Emphasize the "Township Economy" and "Township Sport" to capture local search intent.
+## 4. DATA REPOSITORY (Variables)
+*   **Address:** 40 Makabeni Road, Village 1 North, Khayelitsha, Cape Town, 7784.
+*   **Hours:** Mon-Fri 09:00-17:00, Sat 08:00-12:00.
+*   **Contact:** info@velokhaya.com | sipho@velokhaya.com (Partnerships) | media@velokhaya.com (PR).
+*   **Phone:** +27 21 361 3456.
+*   **Bank:** Standard Bank | Account: Velokhaya Cycling Academy | No: 07 123 456 7 | Branch: 020909.
 
-### Semantic Entities
-*   **People:** Sipho Mona (GM), Nicholas Dlamini (Olympian), Luthando Kaka (Captain), Anita Zenani (BMX Champion).
-*   **Partners:** Pick n Pay, Matrix Fitness, MTN, Microsoft.
-*   **Concepts:** "Life Cycling", "Safe Cycling", "No Homework No Ride".
-
-## 5. Technical Architecture
-
-*   **Stack:** Static HTML5.
-*   **Styling:** Tailwind CSS v4 (compiled via CLI).
-*   **Icons:** Lucide Icons (via CDN).
-*   **Structure:**
-    *   `index.html`: Hero, Hook, Partners.
-    *   `our-approach.html`: History, Leadership, Hall of Fame.
-    *   `impact.html`: The 3 Pillars (Sport, Education, Nutrition).
-    *   `support.html`: Donation Tiers, Campaigns, International Giving.
-    *   `contact.html`: Physical address, form, specific email contacts.
-
-### ⚠️ Build Process (IMPORTANT)
-After making any changes to HTML files that add or modify Tailwind CSS classes, you **MUST** rebuild the CSS:
-
-```bash
-npm run build
-```
-
-This compiles `src/input.css` → `css/styles.css`. Without this step, new Tailwind classes will not be applied and the page will appear broken.
-
-**Files:**
-*   Source: `src/input.css`
-*   Output: `css/styles.css` (do not edit directly)
-
-## 6. Content Strategy Guidelines
-
-*   **The "Life Cycling" Pillars:** Always categorize impact into:
-    1.  **Sport (The Carrot):** Medals, podiums, discipline.
-    2.  **Education (The Purpose):** ICT lab, tutoring, matric results.
-    3.  **Nutrition (The Fuel):** Daily meals, health.
-*   **The "Container" Narrative:** Frame the shipping containers not as poverty, but as the "incubator" of talent.
-*   **Call to Action (CTA):** Use active, sports-related verbs: "Join the Peloton", "Fuel the Future", "Ride with Us".
-
-## 7. Critical Data Points (For Verification)
-*   **Bank:** Standard Bank
-*   **Account Name:** Velokhaya Cycling Academy
-*   **UK Partner:** The Buffalo Foundation (Charity No. 1165676)
-*   **Key Email:** `sipho@velokhaya.com` (Partnerships)
+## 5. FAQ DICTIONARY
+*   **How to join?** Entry based on interest, commitment, and readiness to engage with both training and learning.
+*   **Bike donations?** Yes, if they meet safety standards.
+*   **Location?** Khayelitsha, Cape Town.

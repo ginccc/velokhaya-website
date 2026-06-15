@@ -1,0 +1,129 @@
+---
+import '../styles/global.css';
+import '../styles/cookie-consent.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import AuthModal from '../components/AuthModal.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalPath?: string;
+  ogImage?: string;
+}
+
+const { 
+  title, 
+  description, 
+  canonicalPath = '/', 
+  ogImage = '/images/hero-riders.jpg' 
+} = Astro.props;
+
+const siteUrl = 'https://velokhaya.labs.ai';
+const canonicalUrl = `${siteUrl}${canonicalPath}`;
+const ogImageUrl = `${siteUrl}${ogImage}`;
+const currentPath = Astro.url.pathname;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+    <meta name="description" content={description}>
+    <meta name="keywords"
+        content="Cycling Academy Cape Town, Velokhaya Khayelitsha, Sports Development NGO South Africa, High-Performance Cycling, Youth Development Khayelitsha, CSI Investment South Africa, B-BBEE Partner">
+    <meta name="author" content="Velokhaya Life Cycling Academy">
+    <meta name="geo.region" content="ZA-WC">
+    <meta name="geo.placename" content="Khayelitsha, Cape Town">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content={canonicalUrl}>
+    <meta property="og:title" content={title}>
+    <meta property="og:description" content={description}>
+    <meta property="og:image" content={ogImageUrl}>
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content={canonicalUrl}>
+    <meta property="twitter:title" content={title}>
+    <meta property="twitter:description" content={description}>
+    <meta property="twitter:image" content={ogImageUrl}>
+
+    <link rel="canonical" href={canonicalUrl}>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/images/logo.png">
+    <meta name="theme-color" content="#000000">
+    <meta name="msapplication-TileColor" content="#000000">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script is:inline src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+    
+    <!-- Schema.org JSON-LD -->
+    <slot name="schema" />
+</head>
+
+<body class="bg-brand-black text-white antialiased selection:bg-brand-red selection:text-white">
+
+    <Header currentPath={currentPath} />
+
+    <main id="main-content">
+        <slot />
+    </main>
+
+    <Footer />
+
+    <AuthModal />
+
+    <!-- Cookie consent -->
+    <script is:inline src="/scripts/cookie-consent.js"></script>
+
+    <script is:inline>
+        lucide.createIcons();
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
+
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                const isOpen = mobileMenu.classList.toggle('hidden');
+                menuIcon.classList.toggle('hidden');
+                closeIcon.classList.toggle('hidden');
+                mobileMenuBtn.setAttribute('aria-expanded', !isOpen);
+            });
+        }
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('main-nav');
+
+        function updateNavbar() {
+            const scrollThreshold = window.innerHeight - 100;
+
+            if (navbar) {
+                if (window.scrollY > scrollThreshold) {
+                    navbar.classList.add('bg-brand-black/90', 'backdrop-blur-md', 'border-b', 'border-white/10');
+                    navbar.classList.remove('bg-gradient-to-r', 'from-black', 'via-black/80', 'to-transparent');
+                } else {
+                    navbar.classList.remove('bg-brand-black/90', 'backdrop-blur-md', 'border-b', 'border-white/10');
+                    navbar.classList.add('bg-gradient-to-r', 'from-black', 'via-black/80', 'to-transparent');
+                }
+            }
+        }
+
+        window.addEventListener('scroll', updateNavbar);
+        window.addEventListener('resize', updateNavbar);
+        updateNavbar();
+    </script>
+</body>
+
+</html>

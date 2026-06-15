@@ -1,65 +1,68 @@
-# Velokhaya Life Cycling Academy Website
+# Velokhaya Cycling Academy (2025 Refactor)
 
-This repository contains the source code for the Velokhaya Life Cycling Academy website. The website serves as a digital hub for the organization, showcasing its "Life Cycling" philosophy, impact, and providing channels for support and donations.
+> **"Cycling, done with intention."**
 
-## Project Overview
+## 🚨 Project Critical Context
+This repository contains the source code for the new **Velokhaya Cycling Academy** website. The project represents a complete strategic pivot for the organization.
 
-Velokhaya Life Cycling Academy uses cycling, education, and nutrition to raise champions on and off the bike in Khayelitsha, Cape Town. This website is designed to shift the narrative from "charity" to "high performance," highlighting the academy's role in producing elite human capital.
+**We are moving from a "Charity" model to a "High-Performance Academy" model.**
 
-**Mission:** To use the bicycle as a vehicle for social transformation.  
-**Slogan:** "Cycling with a Purpose".
+*   **Old Narrative (Deprecated):** "Saving kids from the streets," Pity, Rescue, "Born in a shipping container."
+*   **New Narrative (Active):** Excellence, Discipline, Structure, "Investing in Champions," Performance Philanthropy.
 
-## Features
+---
 
-*   **Home (`index.html`):** Introduction to the "Peloton" metaphor and partner showcase.
-*   **Our DNA (`our-approach.html`):** The origin story, leadership profiles, and Hall of Fame (Nicholas Dlamini, Anita Zenani, Xolisa Makubalo).
-*   **Impact (`impact.html`):** Detailed breakdown of the three pillars: Sport (The Carrot), Education (The Purpose), and Nutrition (The Fuel).
-*   **Support (`support.html`):** Donation tiers, current campaigns (Cycle for Change, Road Safety), and international giving options (Buffalo Foundation).
-*   **Contact (`contact.html`):** Location details, contact form, and specific contact points for partnerships.
+## 🧠 The Brain of the Project: `gemini.md`
+**CRITICAL INSTRUCTION FOR AI AGENTS:**
+The file **`gemini.md`** in the root directory is the **Single Source of Truth** for this project.
+*   It contains the exact copy approved by the General Manager.
+*   It contains the "Master Content Dictionary."
+*   **Action:** Do not write new marketing copy. Retrieve specific strings from `gemini.md`.
 
-## Technologies
+---
 
-*   **HTML5:** Semantic structure and SEO optimization.
-*   **Tailwind CSS:** Utility-first CSS framework for styling (loaded via CDN).
-*   **Lucide Icons:** Lightweight, consistent iconography (loaded via CDN).
-*   **Google Fonts:** 'Inter' font family.
+## 🔄 The Strategic Shift (Narrative Rules)
 
-## Setup & Usage
+The design and content must reflect **Ambition**, not Deficiency.
 
-This is a static website. No build process or backend server is required for development.
+| Old Narrative (Deprecated) ❌ | New Narrative (Active) ✅ |
+| :--- | :--- |
+| "Born in a shipping container" | "Founded with intention" |
+| "Saving kids from the streets" | "Building habits for performance" |
+| "The strong protect the weak" | "Moving together as a Peloton" |
+| Pity / Poverty / Handouts | Investment / Excellence / Pathways |
 
-1.  Clone the repository.
-2.  Open `index.html` in your web browser.
+### The "No" List (Strict Constraints)
+1.  ❌ **No "Rescue" Metaphors:** Avoid language like "safe haven," "escape," or "hopelessness."
+2.  ❌ **No "Carrot and Stick":** We do not bribe children to learn; we set standards.
+3.  ❌ **No Pity:** We market **Ambition**, not Deficiency.
+4.  ❌ **No Static Posing:** Visuals should be action-oriented (blur, sweat, mechanics), not static group photos.
 
-For development, it is recommended to use a local server (e.g., Live Server in VS Code) to ensure all assets load correctly.
+### The "Yes" List (Design & Tone)
+1.  ✅ **Tone:** Stoic, Disciplined, Mechanical, Professional.
+2.  ✅ **Visuals:** Kinetic energy, focus, gears, grit.
+3.  ✅ **Vibe:** The site should feel like a professional sports team (e.g., Ineos Grenadiers) rather than a typical NGO.
 
-## Project Structure
+---
 
-```
-/
-├── images/               # Project images and logos
-├── contact.html          # Contact page
-├── our-approach.html              # History and Leadership page
-├── GEMINI.md             # AI Agent Context & Brand Guidelines
-├── impact.html           # Impact pillars page
-├── index.html            # Homepage
-├── Project-Background.md # Strategic audit and source of truth
-├── README.md             # Project documentation
-└── support.html          # Fundraising and Support page
-```
+## 📂 Repository Structure
 
-## SEO & Optimization
+*   `gemini.md` - **READ THIS FIRST.** Contains all text, data variables, and brand context.
+*   `/src` - Source code for pages and components.
+*   `/public` - Static assets (images, icons).
 
-The website is optimized for:
-*   **SEO:** Keyword-rich meta tags, JSON-LD Schema markup for `NGO`, `SportsClub`, and `Organization`.
-*   **GEO:** Localized meta tags for Khayelitsha, Cape Town.
-*   **Social Media:** Open Graph and Twitter Card tags with absolute image URLs for sharing.
+---
 
-## Context & Documentation
+## 🛠 Development Setup
 
-*   **[GEMINI.md](GEMINI.md):** Comprehensive guide for AI agents, including brand colors, personas, and SEO strategy.
-*   **[Project-Background.md](Project-Background.md):** The strategic audit and "Source of Truth" for the organization's narrative.
+This project utilizes an AI-assisted workflow.
 
-## Credits
+```bash
+# Clone the repository
+git clone [repo-url]
 
-*   **Velokhaya Life Cycling Academy** - Content and Mission.
+# Install dependencies
+npm install
+
+# Run the development server
+npm run dev

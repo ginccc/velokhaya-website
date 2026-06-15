@@ -1,0 +1,93 @@
+---
+---
+
+<!-- Password Protection Modal -->
+<div id="auth-modal" class="fixed inset-0 z-[10000] flex items-center justify-center bg-brand-black hidden">
+    <div class="bg-brand-dark border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 max-w-md w-full mx-4 shadow-2xl">
+        <div class="text-center mb-6 sm:mb-8">
+            <img src="/images/logo.png" alt="Velokhaya" class="h-12 sm:h-16 w-auto mx-auto mb-4 sm:mb-6 opacity-80">
+            <h2 class="text-xl sm:text-2xl font-bold text-white mb-2">Welcome to Velokhaya</h2>
+            <p class="text-gray-400 text-sm">Enter the access code to continue</p>
+        </div>
+        <form id="auth-form" class="space-y-4">
+            <input type="password" id="auth-password" placeholder="Enter access code"
+                class="w-full px-4 py-3 bg-brand-black border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-brand-red transition-colors"
+                autocomplete="off">
+            <p id="auth-error" class="text-brand-red text-sm hidden">Incorrect access code. Please try again.</p>
+            <button type="submit"
+                class="w-full py-3 bg-brand-red hover:bg-brand-blue text-white font-bold rounded-xl transition-colors">
+                Enter Site
+            </button>
+        </form>
+    </div>
+</div>
+
+<script is:inline>
+    (function () {
+        const AUTH_COOKIE_NAME = 'velokhaya_access';
+        const AUTH_PASSWORD = 'givemeaccess';
+        const modal = document.getElementById('auth-modal');
+        const form = document.getElementById('auth-form');
+        const passwordInput = document.getElementById('auth-password');
+        const errorMsg = document.getElementById('auth-error');
+        const pageContent = document.querySelectorAll('body > nav, body > main, body > footer');
+
+        function checkAccess() {
+            const local = localStorage.getItem(AUTH_COOKIE_NAME) === 'granted';
+            const session = sessionStorage.getItem(AUTH_COOKIE_NAME) === 'granted';
+            return local || session;
+        }
+
+        function hideContent() {
+            pageContent.forEach(el => el.style.display = 'none');
+        }
+
+        function showContent() {
+            pageContent.forEach(el => el.style.display = '');
+        }
+
+        function showModal() {
+            hideContent();
+            modal.classList.remove('hidden');
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            passwordInput.focus();
+        }
+
+        function hideModal() {
+            modal.classList.add('hidden');
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+            showContent();
+        }
+
+        function grantAccess() {
+            try {
+                localStorage.setItem(AUTH_COOKIE_NAME, 'granted');
+                sessionStorage.setItem(AUTH_COOKIE_NAME, 'granted');
+            } catch (e) {
+                console.error('Storage failed', e);
+            }
+            hideModal();
+        }
+
+        if (checkAccess()) {
+            modal.classList.add('hidden');
+            modal.style.display = 'none';
+        } else {
+            showModal();
+        }
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            if (passwordInput.value === AUTH_PASSWORD) {
+                errorMsg.classList.add('hidden');
+                grantAccess();
+            } else {
+                errorMsg.classList.remove('hidden');
+                passwordInput.value = '';
+                passwordInput.focus();
+            }
+        });
+    })();
+</script>

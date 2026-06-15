@@ -1,0 +1,54 @@
+/* Cookie Consent Banner - Custom utility classes not covered by Tailwind */
+
+.bg-black-50 {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.z-9998 {
+    z-index: 9998;
+}
+
+.z-9999 {
+    z-index: 9999;
+}
+
+.w-90-percent {
+    width: 90%;
+}
+
+.bg-white-10 {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.border-white-10 {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.bg-accent {
+    background-color: var(--accent);
+}
+
+.text-accent {
+    color: var(--accent);
+}
+
+.hover-brightness-105:hover {
+    filter: brightness(1.05);
+}
+
+.hover-bg-brand-gray:hover {
+    background-color: var(--color-brand-gray);
+}
+
+.hover-opacity-90:hover {
+    opacity: 0.9;
+}
+
+.hover-text-accent:hover {
+    color: var(--accent);
+}
+
+.font-heading {
+    font-family: var(--font-sans);
+}
+

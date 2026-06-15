@@ -1,0 +1,88 @@
+---
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = '/' } = Astro.props;
+
+function linkClass(href: string): string {
+  const isActive = currentPath === href || 
+    (href !== '/' && currentPath.startsWith(href.replace(/\/$/, '')));
+  
+  if (isActive) {
+    return 'text-brand-yellow px-3 py-2 rounded-md text-sm font-medium transition-colors';
+  }
+  
+  // Color-coded hover states per page
+  const hoverColors: Record<string, string> = {
+    '/': 'hover:text-brand-yellow',
+    '/our-approach/': 'hover:text-brand-red',
+    '/impact/': 'hover:text-brand-blue',
+    '/support/': 'hover:text-brand-yellow',
+    '/contact/': 'hover:text-brand-red',
+  };
+  const hover = hoverColors[href] || 'hover:text-white';
+  return `text-gray-300 ${hover} px-3 py-2 rounded-md text-sm font-medium transition-colors`;
+}
+
+function mobileLinkClass(href: string): string {
+  const isActive = currentPath === href || 
+    (href !== '/' && currentPath.startsWith(href.replace(/\/$/, '')));
+  
+  if (isActive) {
+    return 'block text-brand-yellow px-3 py-2 rounded-md text-base font-medium';
+  }
+  
+  const hoverColors: Record<string, string> = {
+    '/': 'hover:text-brand-yellow',
+    '/our-approach/': 'hover:text-brand-red',
+    '/impact/': 'hover:text-brand-blue',
+    '/support/': 'hover:text-brand-yellow',
+    '/contact/': 'hover:text-brand-red',
+  };
+  const hover = hoverColors[href] || 'hover:text-white';
+  return `block text-gray-300 ${hover} px-3 py-2 rounded-md text-base font-medium`;
+}
+---
+
+<nav id="main-nav"
+    class="fixed w-full z-50 transition-all duration-300 bg-gradient-to-r from-black via-black/80 to-transparent">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-24">
+            <div class="flex-shrink-0 flex items-center">
+                <a href="/" class="flex items-center gap-2">
+                    <img src="/images/logo.png" alt="Velokhaya" class="h-14 w-auto object-contain">
+                </a>
+            </div>
+            <div class="hidden md:block">
+                <div class="ml-10 flex items-center space-x-8">
+                    <a href="/" class={linkClass('/')}>Home</a>
+                    <a href="/our-approach/" class={linkClass('/our-approach/')}>Our Approach</a>
+                    <a href="/impact/" class={linkClass('/impact/')}>Impact</a>
+                    <a href="/support/" class={linkClass('/support/')}>Support</a>
+                    <a href="/contact/" class={linkClass('/contact/')}>Contact</a>
+                    <a href="/contact/"
+                        class="bg-brand-red text-white hover:bg-brand-blue px-6 py-2.5 rounded-full text-sm font-bold transition-all transform hover:scale-105 shadow-lg shadow-brand-red/20">CONTACT VELOKHAYA</a>
+                </div>
+            </div>
+            <div class="md:hidden">
+                <button type="button" id="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false"
+                    class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none"><i
+                        data-lucide="menu" id="menu-icon" class="w-6 h-6"></i><i data-lucide="x" id="close-icon"
+                        class="hidden w-6 h-6"></i></button>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-black/95 backdrop-blur-md border-t border-white/10">
+            <div class="px-4 py-6 space-y-4">
+                <a href="/" class={mobileLinkClass('/')}>Home</a>
+                <a href="/our-approach/" class={mobileLinkClass('/our-approach/')}>Our Approach</a>
+                <a href="/impact/" class={mobileLinkClass('/impact/')}>Impact</a>
+                <a href="/support/" class={mobileLinkClass('/support/')}>Support</a>
+                <a href="/contact/" class={mobileLinkClass('/contact/')}>Contact</a>
+                <a href="/contact/"
+                    class="block bg-brand-red text-white text-center px-6 py-3 rounded-full text-base font-bold mt-6 mb-2">CONTACT VELOKHAYA</a>
+            </div>
+        </div>
+    </div>
+</nav>
