@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArrowRight from '@lucide/astro/icons/arrow-right';
+---
+
+<BaseLayout
+  title="Page Not Found | Velokhaya Life Cycling Academy"
+  description="The page you were looking for doesn't exist. Find your way back to the Velokhaya Life Cycling Academy website."
+  canonicalPath="/404/"
+>
+    <section class="min-h-[70vh] flex items-center bg-brand-black pt-40 pb-24" style="padding-top: 10rem;">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="flex items-center gap-4 mb-6">
+                <span class="h-1 w-12 bg-brand-red"></span>
+                <span class="text-brand-red font-bold tracking-widest uppercase text-sm">Error 404</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-black mb-6">OFF THE <span class="text-brand-red">ROUTE</span></h1>
+            <p class="text-xl text-gray-400 mb-10 border-l-4 border-brand-red pl-6">
+                This page doesn't exist, or it has moved. Let's get you back on course.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+                <a href="/"
+                    class="flex items-center justify-between gap-3 p-5 rounded-xl border border-white/10 hover:border-brand-yellow/40 hover:bg-brand-dark transition-all group">
+                    <div>
+                        <p class="text-white font-bold">Home</p>
+                        <p class="text-sm text-gray-500">Start from the beginning</p>
+                    </div>
+                    <ArrowRight class="w-5 h-5 text-gray-600 group-hover:text-brand-yellow transition-colors" />
+                </a>
+                <a href="/our-approach/"
+                    class="flex items-center justify-between gap-3 p-5 rounded-xl border border-white/10 hover:border-brand-red/40 hover:bg-brand-dark transition-all group">
+                    <div>
+                        <p class="text-white font-bold">Our Approach</p>
+                        <p class="text-sm text-gray-500">How the academy works</p>
+                    </div>
+                    <ArrowRight class="w-5 h-5 text-gray-600 group-hover:text-brand-red transition-colors" />
+                </a>
+                <a href="/impact/"
+                    class="flex items-center justify-between gap-3 p-5 rounded-xl border border-white/10 hover:border-brand-blue/40 hover:bg-brand-dark transition-all group">
+                    <div>
+                        <p class="text-white font-bold">Impact</p>
+                        <p class="text-sm text-gray-500">Sport, education, nutrition</p>
+                    </div>
+                    <ArrowRight class="w-5 h-5 text-gray-600 group-hover:text-brand-blue transition-colors" />
+                </a>
+                <a href="/support/"
+                    class="flex items-center justify-between gap-3 p-5 rounded-xl border border-white/10 hover:border-brand-yellow/40 hover:bg-brand-dark transition-all group">
+                    <div>
+                        <p class="text-white font-bold">Support</p>
+                        <p class="text-sm text-gray-500">Ride with Velokhaya</p>
+                    </div>
+                    <ArrowRight class="w-5 h-5 text-gray-600 group-hover:text-brand-yellow transition-colors" />
+                </a>
+            </div>
+
+            <p class="text-gray-500 text-sm">
+                Still stuck? <a href="/contact/" class="text-brand-red hover:underline">Get in touch</a> and we'll
+                point you in the right direction.
+            </p>
+        </div>
+    </section>
+</BaseLayout>
