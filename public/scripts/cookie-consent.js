@@ -54,9 +54,6 @@
     function showBanner() {
         // Check if banner already exists
         if (document.getElementById('cookie-consent-banner')) return;
-        
-        // Expose globally
-        window.showCookieBanner = showBanner;
 
         // Create overlay
         const overlay = document.createElement('div');
@@ -79,12 +76,16 @@
                 </div>
                 <h3 class="text-xl font-bold font-heading text-white mb-2">We value your privacy</h3>
                 <p class="text-gray-400 mb-6 text-sm leading-relaxed">
-                    We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. 
-                    We need your consent to use some of these technologies.
+                    We use analytics cookies to understand how this site is used and to improve it.
+                    They are only set with your consent. Read our
+                    <a href="/privacy-policy/" class="underline text-gray-300 hover-text-accent">Privacy Policy</a>.
                 </p>
                 <div class="flex flex-col space-y-3">
                     <button id="cookie-accept-all" class="w-full px-4 py-3 bg-accent hover-brightness-105 text-white rounded-lg text-sm font-bold transition-all shadow-md cursor-pointer">
                         Accept All
+                    </button>
+                    <button id="cookie-essential-only" class="w-full px-4 py-3 bg-brand-black border border-white-10 hover-bg-brand-gray text-white rounded-lg text-sm font-medium transition-colors cursor-pointer">
+                        Essential Only
                     </button>
                     <button id="cookie-manage" class="w-full px-4 py-3 bg-brand-black border border-white-10 hover-bg-brand-gray text-white rounded-lg text-sm font-medium transition-colors cursor-pointer">
                         Manage Preferences
@@ -161,6 +162,7 @@
         // Event Delegation or re-attaching listeners
         function attachInitialListeners() {
             document.getElementById('cookie-accept-all').addEventListener('click', handleAcceptAll);
+            document.getElementById('cookie-essential-only').addEventListener('click', () => handleSave(false));
             document.getElementById('cookie-manage').addEventListener('click', () => {
                 banner.innerHTML = preferencesContent;
                 attachPreferencesListeners();
@@ -168,6 +170,10 @@
         }
 
         function attachPreferencesListeners() {
+            // Reflect the stored choice when reopening the banner
+            document.getElementById('toggle-analytics').checked =
+                localStorage.getItem('cookie_consent') === 'accepted';
+
             document.getElementById('cookie-back').addEventListener('click', () => {
                 banner.innerHTML = initialContent;
                 attachInitialListeners();
@@ -182,6 +188,20 @@
         }
 
         attachInitialListeners();
+    }
+
+    // Always available so the footer "Cookie Preferences" button can reopen the banner
+    window.showCookieBanner = showBanner;
+
+    function bindSettingsButton() {
+        const btn = document.getElementById('cookie-settings-btn');
+        if (btn) btn.addEventListener('click', showBanner);
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', bindSettingsButton);
+    } else {
+        bindSettingsButton();
     }
 
     const consent = localStorage.getItem('cookie_consent');

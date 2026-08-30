@@ -3,7 +3,6 @@ import '../styles/global.css';
 import '../styles/cookie-consent.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import AuthModal from '../components/AuthModal.astro';
 
 interface Props {
   title: string;
@@ -19,7 +18,7 @@ const {
   ogImage = '/images/hero-riders.jpg' 
 } = Astro.props;
 
-const siteUrl = 'https://velokhaya.labs.ai';
+const siteUrl = (Astro.site ?? new URL('https://velokhaya.labs.ai')).href.replace(/\/$/, '');
 const canonicalUrl = `${siteUrl}${canonicalPath}`;
 const ogImageUrl = `${siteUrl}${ogImage}`;
 const currentPath = Astro.url.pathname;
@@ -65,29 +64,30 @@ const currentPath = Astro.url.pathname;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
-    <script is:inline src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
-    
+
     <!-- Schema.org JSON-LD -->
     <slot name="schema" />
 </head>
 
 <body class="bg-brand-black text-white antialiased selection:bg-brand-red selection:text-white">
 
+    <a href="#main-content"
+        class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-brand-yellow focus:text-brand-black focus:px-4 focus:py-2 focus:rounded-lg focus:font-bold">
+        Skip to content
+    </a>
+
     <Header currentPath={currentPath} />
 
-    <main id="main-content">
+    <main id="main-content" tabindex="-1" class="focus:outline-none">
         <slot />
     </main>
 
     <Footer />
 
-    <AuthModal />
-
     <!-- Cookie consent -->
     <script is:inline src="/scripts/cookie-consent.js"></script>
 
     <script is:inline>
-        lucide.createIcons();
         // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');

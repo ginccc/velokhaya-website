@@ -1,11 +1,19 @@
 ---
+import Facebook from './icons/Facebook.astro';
+import Twitter from './icons/Twitter.astro';
+import Instagram from './icons/Instagram.astro';
+import Linkedin from './icons/Linkedin.astro';
+import ShieldCheck from '@lucide/astro/icons/shield-check';
+import FileText from '@lucide/astro/icons/file-text';
+import Cookie from '@lucide/astro/icons/cookie';
 ---
 
 <footer class="bg-brand-black border-t border-white/5 py-12 md:py-16 text-gray-500">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mb-10">
             <div>
-                <img src="/images/logo.png" alt="Velokhaya Life Cycling Academy" class="h-12 mb-6">
+                <img src="/images/logo.png" alt="Velokhaya Life Cycling Academy" width="1560" height="459"
+                    loading="lazy" class="h-12 w-auto mb-6">
                 <p class="text-sm leading-relaxed mb-6">
                     Building Champions On and Off the Bike. Structured development through cycling, education,
                     and nutrition.
@@ -13,20 +21,16 @@
                 <div class="flex gap-4">
                     <a href="https://www.facebook.com/Velokhaya/" target="_blank" rel="noopener noreferrer"
                         aria-label="Follow us on Facebook"
-                        class="text-gray-500 hover:text-white transition-colors"><i data-lucide="facebook"
-                            class="w-5 h-5"></i></a>
+                        class="text-gray-500 hover:text-white transition-colors"><Facebook class="w-5 h-5" /></a>
                     <a href="https://x.com/Velokhaya" target="_blank" rel="noopener noreferrer"
                         aria-label="Follow us on X (Twitter)"
-                        class="text-gray-500 hover:text-white transition-colors"><i data-lucide="twitter"
-                            class="w-5 h-5"></i></a>
+                        class="text-gray-500 hover:text-white transition-colors"><Twitter class="w-5 h-5" /></a>
                     <a href="https://www.instagram.com/velokhaya_academy/?hl=en" target="_blank"
                         rel="noopener noreferrer" aria-label="Follow us on Instagram"
-                        class="text-gray-500 hover:text-white transition-colors"><i data-lucide="instagram"
-                            class="w-5 h-5"></i></a>
+                        class="text-gray-500 hover:text-white transition-colors"><Instagram class="w-5 h-5" /></a>
                     <a href="https://www.linkedin.com/company/velokhaya/" target="_blank" rel="noopener noreferrer"
                         aria-label="Follow us on LinkedIn"
-                        class="text-gray-500 hover:text-white transition-colors"><i data-lucide="linkedin"
-                            class="w-5 h-5"></i></a>
+                        class="text-gray-500 hover:text-white transition-colors"><Linkedin class="w-5 h-5" /></a>
                 </div>
             </div>
 
@@ -55,16 +59,18 @@
             <div>
                 <h4 class="text-white font-bold mb-6">Legal & Trust</h4>
                 <ul class="space-y-4 text-sm">
-                    <li class="flex items-center gap-2"><i data-lucide="shield-check"
-                            class="w-4 h-4 text-brand-green"></i> Registered NPO</li>
-                    <li class="flex items-center gap-2"><i data-lucide="shield-check"
-                            class="w-4 h-4 text-brand-green"></i> PBO Status Approved</li>
-                    <li class="flex items-center gap-2"><i data-lucide="file-text" class="w-4 h-4"></i> <a href="#"
+                    <li class="flex items-center gap-2"><ShieldCheck class="w-4 h-4 text-brand-green" /> Registered NPO</li>
+                    <li class="flex items-center gap-2"><ShieldCheck class="w-4 h-4 text-brand-green" /> PBO Status Approved</li>
+                    <li class="flex items-center gap-2"><FileText class="w-4 h-4" /> <a href="/privacy-policy/"
                             class="hover:text-white underline decoration-gray-700 underline-offset-4">Privacy
                             Policy</a></li>
-                    <li class="flex items-center gap-2"><i data-lucide="file-text" class="w-4 h-4"></i> <a href="#"
+                    <li class="flex items-center gap-2"><FileText class="w-4 h-4" /> <a href="/terms-of-use/"
                             class="hover:text-white underline decoration-gray-700 underline-offset-4">Terms of
                             Use</a></li>
+                    <li class="flex items-center gap-2"><Cookie class="w-4 h-4" /> <button type="button"
+                            id="cookie-settings-btn"
+                            class="hover:text-white underline decoration-gray-700 underline-offset-4 cursor-pointer">Cookie
+                            Preferences</button></li>
                 </ul>
             </div>
         </div>

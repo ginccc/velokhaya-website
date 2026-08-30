@@ -1,5 +1,46 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Facebook from '../components/icons/Facebook.astro';
+import Twitter from '../components/icons/Twitter.astro';
+import Instagram from '../components/icons/Instagram.astro';
+import Linkedin from '../components/icons/Linkedin.astro';
+import MapPin from '@lucide/astro/icons/map-pin';
+import Clock from '@lucide/astro/icons/clock';
+import Map from '@lucide/astro/icons/map';
+import Mail from '@lucide/astro/icons/mail';
+import Newspaper from '@lucide/astro/icons/newspaper';
+import Phone from '@lucide/astro/icons/phone';
+import Send from '@lucide/astro/icons/send';
+
+const siteUrl = (Astro.site ?? new URL('https://velokhaya.labs.ai')).href.replace(/\/$/, '');
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'SportsClub',
+  name: 'Velokhaya Life Cycling Academy',
+  image: `${siteUrl}/images/logo.png`,
+  telephone: '+27 21 361 3456',
+  email: 'sipho@velokhaya.com',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '40 Makabeni Road, Village 1 North',
+    addressLocality: 'Khayelitsha',
+    addressRegion: 'Western Cape',
+    postalCode: '7784',
+    addressCountry: 'ZA',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: -34.0386,
+    longitude: 18.673,
+  },
+  url: `${siteUrl}/contact/`,
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+    opens: '09:00',
+    closes: '17:00',
+  },
+};
 ---
 
 <BaseLayout
@@ -9,42 +50,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   ogImage="/images/map-bg.jpg"
 >
   <Fragment slot="schema">
-    <script is:inline type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SportsClub",
-      "name": "Velokhaya Life Cycling Academy",
-      "image": "https://velokhaya.com/images/logo.png",
-      "telephone": "+27 21 361 3456",
-      "email": "info@velokhaya.com",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "40 Makabeni Road, Village 1 North",
-        "addressLocality": "Khayelitsha",
-        "addressRegion": "Western Cape",
-        "postalCode": "7784",
-        "addressCountry": "ZA"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": -34.0386,
-        "longitude": 18.6730
-      },
-      "url": "https://velokhaya.com/contact/",
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday"
-        ],
-        "opens": "09:00",
-        "closes": "17:00"
-      }
-    }
-    </script>
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
   </Fragment>
 
     <!-- Header -->
@@ -77,7 +83,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                     <div class="p-6 bg-brand-dark rounded-2xl border border-white/10 mb-8">
                         <div class="flex items-start gap-4">
                             <div class="bg-brand-red/20 p-3 rounded-xl">
-                                <i data-lucide="map-pin" class="w-6 h-6 text-brand-red"></i>
+                                <MapPin class="w-6 h-6 text-brand-red" />
                             </div>
                             <div>
                                 <h3 class="font-bold text-lg text-white mb-2">Address</h3>
@@ -88,7 +94,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                         <!-- Opening Hours inline -->
                         <div class="mt-6 pt-6 border-t border-white/10">
                             <div class="flex items-center gap-2 mb-3">
-                                <i data-lucide="clock" class="w-4 h-4 text-gray-500"></i>
+                                <Clock class="w-4 h-4 text-gray-500" />
                                 <span class="text-sm text-gray-500 font-medium">Opening Hours</span>
                             </div>
                             <div class="grid grid-cols-2 gap-3 text-sm">
@@ -105,36 +111,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                         
                         <!-- Map Button -->
                         <a href="https://maps.app.goo.gl/7QLGLsUwiUVKsEKi8" target="_blank" rel="noopener noreferrer" class="mt-6 w-full flex items-center justify-center gap-2 bg-brand-red/10 hover:bg-brand-red text-brand-red hover:text-white px-6 py-3 rounded-xl font-bold transition-all">
-                            <i data-lucide="map" class="w-5 h-5"></i>
+                            <Map class="w-5 h-5" />
                             <span>Open in Maps</span>
                         </a>
                     </div>
 
                     <!-- Contact Methods - Compact Grid -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <a href="mailto:info@velokhaya.com" class="flex items-center gap-3 p-4 rounded-xl border border-white/10 hover:border-brand-red/30 hover:bg-brand-dark transition-all group">
+                        <a href="mailto:sipho@velokhaya.com" class="flex items-center gap-3 p-4 rounded-xl border border-white/10 hover:border-brand-red/30 hover:bg-brand-dark transition-all group">
                             <div class="bg-brand-red/10 p-2.5 rounded-lg group-hover:bg-brand-red/20 transition-colors">
-                                <i data-lucide="mail" class="w-5 h-5 text-brand-red"></i>
+                                <Mail class="w-5 h-5 text-brand-red" />
                             </div>
                             <div>
-                                <p class="text-xs text-gray-500">General Inquiries</p>
-                                <p class="text-sm text-white font-medium">info@velokhaya.com</p>
-                            </div>
-                        </a>
-
-                        <a href="mailto:sipho@velokhaya.com" class="flex items-center gap-3 p-4 rounded-xl border border-white/10 hover:border-brand-blue/30 hover:bg-brand-dark transition-all group">
-                            <div class="bg-brand-blue/10 p-2.5 rounded-lg group-hover:bg-brand-blue/20 transition-colors">
-                                <i data-lucide="briefcase" class="w-5 h-5 text-brand-blue"></i>
-                            </div>
-                            <div>
-                                <p class="text-xs text-gray-500">Partnerships</p>
+                                <p class="text-xs text-gray-500">General & Partnerships</p>
                                 <p class="text-sm text-white font-medium">sipho@velokhaya.com</p>
                             </div>
                         </a>
 
                         <a href="mailto:media@velokhaya.com" class="flex items-center gap-3 p-4 rounded-xl border border-white/10 hover:border-brand-yellow/30 hover:bg-brand-dark transition-all group">
                             <div class="bg-brand-yellow/10 p-2.5 rounded-lg group-hover:bg-brand-yellow/20 transition-colors">
-                                <i data-lucide="newspaper" class="w-5 h-5 text-brand-yellow"></i>
+                                <Newspaper class="w-5 h-5 text-brand-yellow" />
                             </div>
                             <div>
                                 <p class="text-xs text-gray-500">Media & PR</p>
@@ -144,7 +140,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
                         <a href="tel:+27213613456" class="flex items-center gap-3 p-4 rounded-xl border border-white/10 hover:border-brand-red/30 hover:bg-brand-dark transition-all group">
                             <div class="bg-brand-red/10 p-2.5 rounded-lg group-hover:bg-brand-red/20 transition-colors">
-                                <i data-lucide="phone" class="w-5 h-5 text-brand-red"></i>
+                                <Phone class="w-5 h-5 text-brand-red" />
                             </div>
                             <div>
                                 <p class="text-xs text-gray-500">Phone</p>
@@ -159,24 +155,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                     <div class="relative z-10">
                         <h2 class="text-2xl font-bold mb-2">Send a Message</h2>
                         <p class="text-gray-500 mb-6">We typically respond within 24-48 hours.</p>
-                        <form class="space-y-5">
+                        <form id="contact-form" class="space-y-5">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-400 mb-1.5">First Name <span class="text-brand-red">*</span></label>
-                                    <input type="text" required class="w-full bg-brand-black border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-red transition-all placeholder-gray-600" placeholder="John">
+                                    <label for="first-name" class="block text-sm font-medium text-gray-400 mb-1.5">First Name <span class="text-brand-red">*</span></label>
+                                    <input type="text" id="first-name" name="first-name" autocomplete="given-name" required class="w-full bg-brand-black border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-red transition-all placeholder-gray-600" placeholder="John">
                                 </div>
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-400 mb-1.5">Last Name <span class="text-brand-red">*</span></label>
-                                    <input type="text" required class="w-full bg-brand-black border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-red transition-all placeholder-gray-600" placeholder="Doe">
+                                    <label for="last-name" class="block text-sm font-medium text-gray-400 mb-1.5">Last Name <span class="text-brand-red">*</span></label>
+                                    <input type="text" id="last-name" name="last-name" autocomplete="family-name" required class="w-full bg-brand-black border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-red transition-all placeholder-gray-600" placeholder="Doe">
                                 </div>
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-gray-400 mb-1.5">Email Address <span class="text-brand-red">*</span></label>
-                                <input type="email" required class="w-full bg-brand-black border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-red transition-all placeholder-gray-600" placeholder="john@example.com">
+                                <label for="email" class="block text-sm font-medium text-gray-400 mb-1.5">Email Address <span class="text-brand-red">*</span></label>
+                                <input type="email" id="email" name="email" autocomplete="email" required class="w-full bg-brand-black border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-red transition-all placeholder-gray-600" placeholder="john@example.com">
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-gray-400 mb-1.5">Subject <span class="text-brand-red">*</span></label>
-                                <select required class="w-full bg-brand-black border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-red transition-all">
+                                <label for="topic" class="block text-sm font-medium text-gray-400 mb-1.5">Subject <span class="text-brand-red">*</span></label>
+                                <select id="topic" name="topic" required class="w-full bg-brand-black border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-red transition-all">
                                     <option value="" disabled selected>Select a topic</option>
                                     <option value="general">General Inquiry</option>
                                     <option value="sponsorship">Corporate Sponsorship / CSI</option>
@@ -188,16 +184,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                                 </select>
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-gray-400 mb-1.5">Message <span class="text-brand-red">*</span></label>
-                                <textarea rows="4" required class="w-full bg-brand-black border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-red transition-all resize-none placeholder-gray-600" placeholder="How can we help?"></textarea>
+                                <label for="message" class="block text-sm font-medium text-gray-400 mb-1.5">Message <span class="text-brand-red">*</span></label>
+                                <textarea id="message" name="message" rows="4" required class="w-full bg-brand-black border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-red transition-all resize-none placeholder-gray-600" placeholder="How can we help?"></textarea>
                             </div>
                             <button type="submit" class="w-full bg-brand-red text-white font-bold py-3.5 rounded-lg hover:bg-white hover:text-brand-black transition-all flex items-center justify-center gap-2">
                                 <span>Send Message</span>
-                                <i data-lucide="send" class="w-4 h-4"></i>
+                                <Send class="w-4 h-4" />
                             </button>
                         </form>
+                        <p class="text-gray-500 text-xs mt-3 text-center">
+                            Sending opens your email app with the message pre-filled and addressed to sipho@velokhaya.com.
+                        </p>
+                        <p id="contact-fallback" class="hidden text-brand-yellow text-sm mt-3 text-center">
+                            If your email app didn't open, please email us directly at
+                            <a href="mailto:sipho@velokhaya.com" class="underline">sipho@velokhaya.com</a>.
+                        </p>
                         <p class="text-gray-600 text-xs mt-4 text-center">
-                            By submitting, you agree to our <a href="#" class="text-gray-500 hover:text-white underline">Privacy Policy</a>.
+                            By submitting, you agree to our <a href="/privacy-policy/" class="text-gray-500 hover:text-white underline">Privacy Policy</a>.
                         </p>
                     </div>
                 </div>
@@ -216,16 +219,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 </div>
                 <div class="flex items-center gap-3">
                     <a href="https://www.facebook.com/Velokhaya/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="p-3 rounded-lg border border-white/10 hover:border-brand-blue/50 hover:bg-brand-blue/10 transition-all group">
-                        <i data-lucide="facebook" class="w-5 h-5 text-gray-500 group-hover:text-brand-blue transition-colors"></i>
+                        <Facebook class="w-5 h-5 text-gray-500 group-hover:text-brand-blue transition-colors" />
                     </a>
                     <a href="https://x.com/Velokhaya" target="_blank" rel="noopener noreferrer" aria-label="X Twitter" class="p-3 rounded-lg border border-white/10 hover:border-white/30 hover:bg-white/5 transition-all group">
-                        <i data-lucide="twitter" class="w-5 h-5 text-gray-500 group-hover:text-white transition-colors"></i>
+                        <Twitter class="w-5 h-5 text-gray-500 group-hover:text-white transition-colors" />
                     </a>
                     <a href="https://www.instagram.com/velokhaya_academy/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="p-3 rounded-lg border border-white/10 hover:border-brand-red/50 hover:bg-brand-red/10 transition-all group">
-                        <i data-lucide="instagram" class="w-5 h-5 text-gray-500 group-hover:text-brand-red transition-colors"></i>
+                        <Instagram class="w-5 h-5 text-gray-500 group-hover:text-brand-red transition-colors" />
                     </a>
                     <a href="https://www.linkedin.com/company/velokhaya/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="p-3 rounded-lg border border-white/10 hover:border-brand-blue/50 hover:bg-brand-blue/10 transition-all group">
-                        <i data-lucide="linkedin" class="w-5 h-5 text-gray-500 group-hover:text-brand-blue transition-colors"></i>
+                        <Linkedin class="w-5 h-5 text-gray-500 group-hover:text-brand-blue transition-colors" />
                     </a>
                 </div>
             </div>
@@ -249,4 +252,31 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </div>
         </div>
     </section>
+
+    <script is:inline>
+        (function () {
+            var form = document.getElementById('contact-form');
+            if (!form) return;
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                var data = new FormData(form);
+                var first = String(data.get('first-name') || '').trim();
+                var last = String(data.get('last-name') || '').trim();
+                var email = String(data.get('email') || '').trim();
+                var message = String(data.get('message') || '').trim();
+                var topicSelect = document.getElementById('topic');
+                var topic = 'General Inquiry';
+                if (topicSelect && topicSelect.selectedIndex >= 0) {
+                    topic = topicSelect.options[topicSelect.selectedIndex].text;
+                }
+                var subject = 'Website enquiry — ' + topic;
+                var body = message + '\n\n— ' + first + ' ' + last + '\n' + email;
+                window.location.href = 'mailto:sipho@velokhaya.com' +
+                    '?subject=' + encodeURIComponent(subject) +
+                    '&body=' + encodeURIComponent(body);
+                var fallback = document.getElementById('contact-fallback');
+                if (fallback) fallback.classList.remove('hidden');
+            });
+        })();
+    </script>
 </BaseLayout>

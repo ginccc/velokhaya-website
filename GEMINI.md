@@ -72,18 +72,22 @@
 ### G. Support ("Ride With Velokhaya")
 *   **Headline:** `RIDE WITH VELOKHAYA`
 *   **Subhead:** `Behind every strong programme is a group of people who believe in consistency, discipline, and long term development.`
-*   **Card 1 (R200/mo):** `MONTHLY PROGRAMME SUPPORT`. "Support the work that happens every day. Contributions support core operations."
-*   **Card 2 (R1,000/mo):** `DEVELOPMENT PATHWAY SUPPORT`. "Contribute at a deeper level. Supports the full set of inputs required for athletes to train, study, and compete. Includes annual briefing with leadership."
-*   **Card 3:** `CORPORATE PARTNERSHIPS`. "Partner with a proven, long term development programme."
+*   **Card 1 (Featured):** `MAKE A DONATION`. "Support the work that happens every day. Your contribution supports the core operations of Velokhaya's sport, education, and nutrition programmes." CTA: `Donate Now via Card` → https://pay.yoco.com/velokhaya (secure once-off card payment via Yoco).
+*   **Card 2:** `CORPORATE PARTNERSHIPS`. "Partner with a proven, long term development programme." CTA: `Discuss a Partnership` → /contact/.
+*   **REMOVED FOR LAUNCH — do not reinstate without sign-off:** the R200/mo and R1,000/mo recurring subscription tiers (no payment mechanism exists for them) and the Direct Bank Transfer section (bank account details must not appear on the site).
 
 ## 4. DATA REPOSITORY (Variables)
+*   **Live domain:** https://velokhaya.labs.ai (GitHub Pages via CNAME; also set as `site` in astro.config.mjs — canonicals, OG tags, JSON-LD, sitemap, and robots.txt must all derive from it). Do NOT use velokhaya.com for URLs; it only appears in the email addresses below.
 *   **Address:** 40 Makabeni Road, Village 1 North, Khayelitsha, Cape Town, 7784.
 *   **Hours:** Mon-Fri 09:00-17:00, Sat 08:00-12:00.
-*   **Contact:** info@velokhaya.com | sipho@velokhaya.com (Partnerships) | media@velokhaya.com (PR).
+*   **Contact:** sipho@velokhaya.com (primary — general enquiries, partnerships, contact form, and legal/privacy requests) | media@velokhaya.com (PR). Do NOT use info@velokhaya.com; it was removed from the site.
 *   **Phone:** +27 21 361 3456.
-*   **Bank:** Standard Bank | Account: Velokhaya Cycling Academy | No: 07 123 456 7 | Branch: 020909.
+*   **Donations:** https://pay.yoco.com/velokhaya (Yoco once-off card payments). Direct bank details were removed for launch — do not publish account numbers without sign-off.
+*   **Social:** facebook.com/Velokhaya | x.com/Velokhaya | instagram.com/velokhaya_academy (verified handle — NOT instagram.com/velokhaya) | linkedin.com/company/velokhaya.
+*   **Legal pages:** /privacy-policy/ and /terms-of-use/ exist and are linked from the footer, the contact form consent line, and the cookie banner. The cookie banner offers Accept All / Essential Only / Manage Preferences; analytics (Amplitude EU) load only after consent.
 
 ## 5. FAQ DICTIONARY
 *   **How to join?** Entry based on interest, commitment, and readiness to engage with both training and learning.
 *   **Bike donations?** Yes, if they meet safety standards.
+*   **Financial support?** Once-off donations (via Yoco), programme support, or strategic partnerships — no recurring/monthly tiers.
 *   **Location?** Khayelitsha, Cape Town.
