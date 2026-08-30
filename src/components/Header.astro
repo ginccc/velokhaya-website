@@ -1,4 +1,7 @@
 ---
+import Menu from '@lucide/astro/icons/menu';
+import X from '@lucide/astro/icons/x';
+
 interface Props {
   currentPath?: string;
 }
@@ -51,7 +54,7 @@ function mobileLinkClass(href: string): string {
         <div class="flex items-center justify-between h-24">
             <div class="flex-shrink-0 flex items-center">
                 <a href="/" class="flex items-center gap-2">
-                    <img src="/images/logo.png" alt="Velokhaya" class="h-14 w-auto object-contain">
+                    <img src="/images/logo.png" alt="Velokhaya" width="1560" height="459" class="h-14 w-auto object-contain">
                 </a>
             </div>
             <div class="hidden md:block">
@@ -67,9 +70,8 @@ function mobileLinkClass(href: string): string {
             </div>
             <div class="md:hidden">
                 <button type="button" id="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false"
-                    class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none"><i
-                        data-lucide="menu" id="menu-icon" class="w-6 h-6"></i><i data-lucide="x" id="close-icon"
-                        class="hidden w-6 h-6"></i></button>
+                    class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none"><Menu
+                        id="menu-icon" class="w-6 h-6" /><X id="close-icon" class="hidden w-6 h-6" /></button>
             </div>
         </div>
         <!-- Mobile menu -->

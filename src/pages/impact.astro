@@ -1,5 +1,16 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Users from '@lucide/astro/icons/users';
+import Trophy from '@lucide/astro/icons/trophy';
+import Bike from '@lucide/astro/icons/bike';
+import GraduationCap from '@lucide/astro/icons/graduation-cap';
+import BookOpen from '@lucide/astro/icons/book-open';
+import Apple from '@lucide/astro/icons/apple';
+import Utensils from '@lucide/astro/icons/utensils';
+import HeartHandshake from '@lucide/astro/icons/heart-handshake';
+import UsersRound from '@lucide/astro/icons/users-round';
+import ShieldCheck from '@lucide/astro/icons/shield-check';
+import CircleCheck from '@lucide/astro/icons/circle-check';
 ---
 
 <BaseLayout
@@ -22,7 +33,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <section class="py-16 bg-brand-black border-b border-white/5">
             <div class="max-w-4xl mx-auto px-4 text-center">
                 <div class="inline-flex items-center justify-center p-3 bg-white/5 rounded-full mb-6">
-                    <i data-lucide="users" class="w-6 h-6 text-brand-yellow mr-2"></i>
+                    <Users class="w-6 h-6 text-brand-yellow mr-2" />
                     <span class="text-sm font-bold tracking-widest uppercase text-gray-300">Moving Together</span>
                 </div>
                 <h2 class="text-3xl md:text-4xl font-bold mb-6">Progress Is Rarely Made Alone</h2>
@@ -46,7 +57,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                     <div>
                         <div class="flex items-center gap-3 mb-6">
                             <div class="p-2 bg-brand-yellow/10 rounded-lg">
-                                <i data-lucide="trophy" class="w-6 h-6 text-brand-yellow"></i>
+                                <Trophy class="w-6 h-6 text-brand-yellow" />
                             </div>
                             <span class="text-brand-yellow font-bold tracking-widest uppercase text-sm">Pillar One</span>
                         </div>
@@ -81,16 +92,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                         </div>
                     </div>
                     <div class="relative">
+                        <!-- Editorial panel. To use a photograph instead, replace the inner contents with an
+                             <img> plus the gradient overlay, keeping the caption block. -->
                         <div
-                            class="aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 bg-gray-800 relative group">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
-                            <div class="absolute bottom-0 left-0 p-8 z-20 max-w-[65%]">
+                            class="aspect-[4/3] rounded-2xl overflow-hidden border border-brand-yellow/20 relative bg-gradient-to-br from-brand-yellow/10 via-brand-dark to-brand-black">
+                            <Bike
+                                class="absolute -right-8 -bottom-8 w-64 h-64 text-brand-yellow/10 pointer-events-none"
+                                stroke-width="1" />
+                            <div class="relative z-10 h-full flex flex-col justify-end p-8">
                                 <p class="text-brand-yellow font-bold mb-1">Global Impact</p>
-                                <p class="text-white text-sm opacity-80">Our riders compete on the world stage, proving
-                                    that talent is universal, even if opportunity is not.</p>
-                            </div>
-                            <div class="w-full h-full bg-gray-900 flex items-center justify-center">
-                                <i data-lucide="bike" class="w-32 h-32 text-gray-800"></i>
+                                <p class="text-white text-sm opacity-80 max-w-[80%]">Our riders compete on the world
+                                    stage, proving that talent is universal, even if opportunity is not.</p>
                             </div>
                         </div>
                         <!-- Floating Stat Card -->
@@ -114,29 +126,31 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     <div class="order-2 lg:order-1 relative">
+                        <!-- Editorial panel. To use a photograph instead, replace the inner contents with an
+                             <img> plus the gradient overlay, keeping the caption block. -->
                         <div
-                            class="aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 bg-gray-800 relative group">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
-                            <div class="absolute bottom-0 left-0 p-8 z-20">
+                            class="aspect-[4/3] rounded-2xl overflow-hidden border border-brand-blue/20 relative bg-gradient-to-br from-brand-blue/15 via-brand-dark to-brand-black">
+                            <GraduationCap
+                                class="absolute -right-8 -bottom-8 w-64 h-64 text-brand-blue/10 pointer-events-none"
+                                stroke-width="1" />
+                            <div class="relative z-10 h-full flex flex-col justify-end p-8">
                                 <p class="text-brand-blue font-bold mb-1">ICT & Life Skills Centre</p>
-                                <p class="text-white text-sm opacity-80">Bridging the digital divide through
+                                <p class="text-white text-sm opacity-80 max-w-[80%]">Bridging the digital divide through
                                     technology access and structured learning.</p>
-                            </div>
-                            <div class="w-full h-full bg-gray-900 flex items-center justify-center">
-                                <i data-lucide="graduation-cap" class="w-32 h-32 text-gray-800"></i>
                             </div>
                         </div>
                         <!-- Floating Stat Card -->
                         <div
                             class="absolute -top-6 -left-6 bg-brand-blue text-white p-6 rounded-xl shadow-lg shadow-brand-blue/20 max-w-xs hidden md:block">
-                            <p class="text-3xl font-black mb-1">HEAD COACH</p>
-                            <p class="text-sm font-bold leading-tight">Xolisa Makubalo — BMX Head Coach</p>
+                            <p class="text-3xl font-black mb-1">LEARNING LAB</p>
+                            <p class="text-sm font-bold leading-tight">Structured study time and academic mentorship,
+                                every day.</p>
                         </div>
                     </div>
                     <div class="order-1 lg:order-2">
                         <div class="flex items-center gap-3 mb-6">
                             <div class="p-2 bg-brand-blue/10 rounded-lg">
-                                <i data-lucide="book-open" class="w-6 h-6 text-brand-blue"></i>
+                                <BookOpen class="w-6 h-6 text-brand-blue" />
                             </div>
                             <span class="text-brand-blue font-bold tracking-widest uppercase text-sm">Pillar Two</span>
                         </div>
@@ -173,7 +187,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 <div class="max-w-3xl mx-auto text-center mb-16">
                     <div class="inline-flex items-center gap-3 mb-6">
                         <div class="p-2 bg-brand-red/10 rounded-lg">
-                            <i data-lucide="apple" class="w-6 h-6 text-brand-red"></i>
+                            <Apple class="w-6 h-6 text-brand-red" />
                         </div>
                         <span class="text-brand-red font-bold tracking-widest uppercase text-sm">Pillar Three</span>
                     </div>
@@ -189,21 +203,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                         <div
                             class="absolute -top-4 -right-4 bg-brand-red text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
                             Core Programme</div>
-                        <i data-lucide="utensils" class="w-10 h-10 text-brand-red mx-auto mb-4"></i>
+                        <Utensils class="w-10 h-10 text-brand-red mx-auto mb-4" />
                         <h3 class="text-xl font-bold text-white mb-2">Daily Meals</h3>
                         <p class="text-gray-500 text-sm">Nutritious breakfast and lunch menus served every day to fuel
                             training and learning.</p>
                     </div>
                     <div
                         class="bg-black/40 p-8 rounded-2xl border border-white/10 text-center hover:border-brand-red/30 transition-all">
-                        <i data-lucide="heart-handshake" class="w-10 h-10 text-brand-red mx-auto mb-4"></i>
+                        <HeartHandshake class="w-10 h-10 text-brand-red mx-auto mb-4" />
                         <h3 class="text-xl font-bold text-white mb-2">Dignity First</h3>
                         <p class="text-gray-500 text-sm">We don't run a soup kitchen line. We provide a family dining
                             environment with proper crockery and cutlery to ensure dignity.</p>
                     </div>
                     <div
                         class="bg-black/40 p-8 rounded-2xl border border-white/10 text-center hover:border-brand-red/30 transition-all">
-                        <i data-lucide="users-2" class="w-10 h-10 text-brand-red mx-auto mb-4"></i>
+                        <UsersRound class="w-10 h-10 text-brand-red mx-auto mb-4" />
                         <h3 class="text-xl font-bold text-white mb-2">Community Powered</h3>
                         <p class="text-gray-500 text-sm">Meals are prepared by community volunteers—mothers and
                             grandmothers—reinforcing local ownership.</p>
@@ -225,7 +239,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                         <div>
                             <div class="flex items-center gap-3 mb-6">
                                 <div class="p-2 bg-white/10 rounded-lg">
-                                    <i data-lucide="shield-check" class="w-6 h-6 text-white"></i>
+                                    <ShieldCheck class="w-6 h-6 text-white" />
                                 </div>
                                 <span class="text-gray-300 font-bold tracking-widest uppercase text-sm">Advocacy</span>
                             </div>
@@ -236,12 +250,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                             <div class="flex flex-wrap gap-4">
                                 <div
                                     class="flex items-center gap-2 text-sm text-gray-300 bg-black/30 px-4 py-2 rounded-full border border-white/10">
-                                    <i data-lucide="check-circle" class="w-4 h-4 text-brand-yellow"></i>
+                                    <CircleCheck class="w-4 h-4 text-brand-yellow" />
                                     <span>1.5 metre safe passing awareness</span>
                                 </div>
                                 <div
                                     class="flex items-center gap-2 text-sm text-gray-300 bg-black/30 px-4 py-2 rounded-full border border-white/10">
-                                    <i data-lucide="check-circle" class="w-4 h-4 text-brand-yellow"></i>
+                                    <CircleCheck class="w-4 h-4 text-brand-yellow" />
                                     <span>Anti-dooring education</span>
                                 </div>
                             </div>

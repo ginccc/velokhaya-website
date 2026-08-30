@@ -1,5 +1,34 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ChevronDown from '@lucide/astro/icons/chevron-down';
+import Quote from '@lucide/astro/icons/quote';
+
+const siteUrl = (Astro.site ?? new URL('https://velokhaya.labs.ai')).href.replace(/\/$/, '');
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'NGO',
+  name: 'Velokhaya Life Cycling Academy',
+  alternateName: 'Velokhaya',
+  url: siteUrl,
+  logo: `${siteUrl}/images/logo.png`,
+  description:
+    'A high-performance cycling academy in Khayelitsha developing athletes through cycling, education, and nutrition.',
+  foundingDate: '2003',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '40 Makabeni Road, Village 1 North',
+    addressLocality: 'Khayelitsha',
+    addressRegion: 'Western Cape',
+    postalCode: '7784',
+    addressCountry: 'ZA',
+  },
+  sameAs: [
+    'https://www.facebook.com/Velokhaya/',
+    'https://x.com/Velokhaya',
+    'https://www.instagram.com/velokhaya_academy/',
+    'https://www.linkedin.com/company/velokhaya/',
+  ],
+};
 ---
 
 <BaseLayout
@@ -8,31 +37,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   canonicalPath="/"
 >
   <Fragment slot="schema">
-    <script is:inline type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "NGO",
-      "name": "Velokhaya Life Cycling Academy",
-      "alternateName": "Velokhaya",
-      "url": "https://velokhaya.com",
-      "logo": "https://velokhaya.com/images/logo.png",
-      "description": "A high-performance cycling academy in Khayelitsha developing athletes through cycling, education, and nutrition.",
-      "foundingDate": "2003",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "40 Makabeni Road, Village 1 North",
-        "addressLocality": "Khayelitsha",
-        "addressRegion": "Western Cape",
-        "postalCode": "7784",
-        "addressCountry": "ZA"
-      },
-      "sameAs": [
-        "https://www.facebook.com/Velokhaya",
-        "https://twitter.com/Velokhaya",
-        "https://www.instagram.com/velokhaya"
-      ]
-    }
-    </script>
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
   </Fragment>
 
     <!-- Hero Section -->
@@ -41,6 +46,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 <div class="absolute inset-0 bg-gradient-to-r from-brand-black via-brand-black/80 to-brand-black/20 z-10">
                 </div>
                 <img src="/images/hero-riders.jpg" alt="Velokhaya cyclists riding in formation through Khayelitsha"
+                    width="2048" height="2048" fetchpriority="high"
                     class="w-full h-full object-cover object-[center_20%] md:object-[center_30%] lg:object-[center_25%]">
             </div>
             <div class="relative z-20 max-w-7xl mx-auto px-6 sm:px-8 lg:px-8 w-full">
@@ -69,7 +75,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </div>
 
             <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-gray-500">
-                <i data-lucide="chevron-down" class="w-8 h-8"></i>
+                <ChevronDown class="w-8 h-8" />
             </div>
         </div>
 
@@ -104,6 +110,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                     <div
                         class="relative h-96 w-full rounded-2xl shadow-2xl border border-white/10 overflow-hidden group">
                         <img src="/images/peloton-rider.jpg" alt="Velokhaya rider in team kit ready to ride"
+                            width="2048" height="2048" loading="lazy"
                             class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                         <div class="absolute bottom-4 right-6 text-right">
@@ -164,76 +171,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </div>
         </section>
 
-        <!-- Latest News -->
-        <section class="py-16 md:py-24 bg-brand-black border-t border-white/5">
-            <div class="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
-                <div class="flex justify-between items-end mb-12">
-                    <div>
-                        <h2 class="text-2xl sm:text-3xl md:text-4xl font-black mb-2">LATEST FROM THE <span
-                                class="text-brand-yellow">TRACK</span></h2>
-                        <p class="text-gray-400">Stories of resilience and victory.</p>
-                    </div>
-                    <a href="#"
-                        class="hidden md:flex items-center gap-2 text-brand-red font-bold hover:text-white transition-colors">
-                        View All News <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </a>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- News Item 1 -->
-                    <div class="group cursor-pointer">
-                        <div class="aspect-[4/3] bg-gray-800 rounded-xl overflow-hidden mb-4 relative">
-                            <div
-                                class="absolute inset-0 bg-brand-red/20 group-hover:bg-transparent transition-colors z-10">
-                            </div>
-                            <div class="w-full h-full bg-gray-700 flex items-center justify-center text-gray-500">
-                                <i data-lucide="trophy" class="w-12 h-12"></i>
-                            </div>
-                        </div>
-                        <p class="text-brand-yellow text-xs font-bold uppercase tracking-wider mb-2">Global Stage</p>
-                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-red transition-colors">Anita
-                            Zenani Ranks World #6</h3>
-                        <p class="text-gray-500 text-sm line-clamp-2">Shattering stereotypes, our very own Anita Zenani
-                            takes the world stage in Denmark, proving Khayelitsha talent is world-class.</p>
-                    </div>
-
-                    <!-- News Item 2 -->
-                    <div class="group cursor-pointer">
-                        <div class="aspect-[4/3] bg-gray-800 rounded-xl overflow-hidden mb-4 relative">
-                            <div
-                                class="absolute inset-0 bg-brand-blue/20 group-hover:bg-transparent transition-colors z-10">
-                            </div>
-                            <div class="w-full h-full bg-gray-700 flex items-center justify-center text-gray-500">
-                                <i data-lucide="hammer" class="w-12 h-12"></i>
-                            </div>
-                        </div>
-                        <p class="text-brand-blue text-xs font-bold uppercase tracking-wider mb-2">Campaign</p>
-                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-blue transition-colors">
-                            Cycle for Change 2026</h3>
-                        <p class="text-gray-500 text-sm line-clamp-2">We are raising R3m to upgrade our container
-                            facilities into a high-performance indoor training centre.</p>
-                    </div>
-
-                    <!-- News Item 3 -->
-                    <div class="group cursor-pointer">
-                        <div class="aspect-[4/3] bg-gray-800 rounded-xl overflow-hidden mb-4 relative">
-                            <div
-                                class="absolute inset-0 bg-brand-yellow/20 group-hover:bg-transparent transition-colors z-10">
-                            </div>
-                            <div class="w-full h-full bg-gray-700 flex items-center justify-center text-gray-500">
-                                <i data-lucide="heart-handshake" class="w-12 h-12"></i>
-                            </div>
-                        </div>
-                        <p class="text-white text-xs font-bold uppercase tracking-wider mb-2">Alumni</p>
-                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-yellow transition-colors">
-                            Nic Dlamini Gives Back</h3>
-                        <p class="text-gray-500 text-sm line-clamp-2">The Olympian returns to his roots, mentoring the
-                            next generation of 'Roadies' on the very streets where he started.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Testimonial Section -->
         <section class="py-16 md:py-24 bg-brand-black border-t border-white/5">
             <div class="max-w-4xl mx-auto px-6 sm:px-6 lg:px-8">
@@ -247,7 +184,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                     <div class="absolute top-0 left-0 w-32 h-32 bg-brand-yellow/10 rounded-full blur-3xl -ml-16 -mt-16">
                     </div>
                     <div class="relative z-10">
-                        <i data-lucide="quote" class="w-10 h-10 sm:w-12 sm:h-12 text-brand-yellow/30 mb-4 sm:mb-6"></i>
+                        <Quote class="w-10 h-10 sm:w-12 sm:h-12 text-brand-yellow/30 mb-4 sm:mb-6" />
                         <blockquote class="text-lg sm:text-xl md:text-2xl text-white font-medium leading-relaxed mb-6 sm:mb-8">
                             "Velokhaya was a place of structure and accountability. 
                             Coaches expected commitment, focus, and consistency, whether we were training or studying. 
@@ -255,7 +192,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                         </blockquote>
                         <div class="flex items-center gap-4">
                             <div class="w-14 h-14 rounded-full bg-gray-800 overflow-hidden">
-                                <img src="/images/hof-nic.png" alt="Nicholas Dlamini" class="w-full h-full object-cover">
+                                <img src="/images/hof-nic.jpg" alt="Nicholas Dlamini" width="1024" height="1024"
+                                    loading="lazy" class="w-full h-full object-cover">
                             </div>
                             <div>
                                 <p class="font-bold text-white">Nicholas Dlamini</p>
@@ -283,7 +221,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                                 <span class="font-bold text-lg text-white" itemprop="name">How can I join
                                     Velokhaya?</span>
                                 <span class="transition group-open:rotate-180">
-                                    <i data-lucide="chevron-down" class="w-5 h-5 text-brand-yellow"></i>
+                                    <ChevronDown class="w-5 h-5 text-brand-yellow" />
                                 </span>
                             </summary>
                             <div class="px-6 pb-6 text-gray-400 leading-relaxed" itemscope itemprop="acceptedAnswer"
@@ -303,7 +241,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                                 <span class="font-bold text-lg text-white" itemprop="name">Do you accept bike
                                     donations?</span>
                                 <span class="transition group-open:rotate-180">
-                                    <i data-lucide="chevron-down" class="w-5 h-5 text-brand-yellow"></i>
+                                    <ChevronDown class="w-5 h-5 text-brand-yellow" />
                                 </span>
                             </summary>
                             <div class="px-6 pb-6 text-gray-400 leading-relaxed" itemscope itemprop="acceptedAnswer"
@@ -323,13 +261,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                                 <span class="font-bold text-lg text-white" itemprop="name">How can I support the academy
                                     financially?</span>
                                 <span class="transition group-open:rotate-180">
-                                    <i data-lucide="chevron-down" class="w-5 h-5 text-brand-yellow"></i>
+                                    <ChevronDown class="w-5 h-5 text-brand-yellow" />
                                 </span>
                             </summary>
                             <div class="px-6 pb-6 text-gray-400 leading-relaxed" itemscope itemprop="acceptedAnswer"
                                 itemtype="https://schema.org/Answer">
                                 <div itemprop="text">
-                                    Individuals and organisations can support Velokhaya through monthly contributions, programme support, or strategic partnerships. Visit our <a href="/support/" class="text-brand-red hover:underline">Support page</a> for more details.
+                                    Individuals and organisations can support Velokhaya through once-off donations, programme support, or strategic partnerships. Visit our <a href="/support/" class="text-brand-red hover:underline">Support page</a> for more details.
                                 </div>
                             </div>
                         </details>
@@ -343,7 +281,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                                 <span class="font-bold text-lg text-white" itemprop="name">Where is Velokhaya
                                     located?</span>
                                 <span class="transition group-open:rotate-180">
-                                    <i data-lucide="chevron-down" class="w-5 h-5 text-brand-yellow"></i>
+                                    <ChevronDown class="w-5 h-5 text-brand-yellow" />
                                 </span>
                             </summary>
                             <div class="px-6 pb-6 text-gray-400 leading-relaxed" itemscope itemprop="acceptedAnswer"
