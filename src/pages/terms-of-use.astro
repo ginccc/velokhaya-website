@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { EMAIL_GENERAL } from '../data/contact';
 ---
 
 <BaseLayout
@@ -20,7 +21,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     <section class="py-16 bg-brand-black">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p class="text-gray-500 text-sm mb-10">Effective date: 30 August 2026</p>
+            <p class="text-gray-500 text-sm mb-10">Effective date: 15 October 2026</p>
 
             <h2 class="text-2xl font-bold text-white mb-4">1. Acceptance of these terms</h2>
             <p class="text-gray-400 leading-relaxed mb-4">
@@ -38,10 +39,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">3. Donations</h2>
             <p class="text-gray-400 leading-relaxed mb-4">
-                Card donations are processed by Yoco, an independent third-party payment provider, on Yoco's own
-                platform and subject to Yoco's terms. Donations are voluntary gifts to support our work. If you
-                believe a donation was made in error, contact us at
-                <a href="mailto:sipho@velokhaya.com" class="text-brand-red hover:underline">sipho@velokhaya.com</a>
+                This website does not process payments. Donations are voluntary gifts to support our work and are
+                arranged directly with us; see our <a href="/support/" class="text-brand-red hover:underline">Support
+                page</a>. If you believe a donation was made in error, contact us at
+                <a href={`mailto:${EMAIL_GENERAL}`} class="text-brand-red hover:underline">{EMAIL_GENERAL}</a>
                 and we will work with you in good faith to resolve it.
             </p>
 
@@ -62,8 +63,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">6. Third-party links</h2>
             <p class="text-gray-400 leading-relaxed mb-4">
-                The website links to third-party sites and services (such as social media platforms, map services,
-                and our payment provider). We do not control those sites and are not responsible for their content
+                The website links to third-party sites and services (such as social media platforms and map
+                services). We do not control those sites and are not responsible for their content
                 or practices.
             </p>
 
@@ -97,7 +98,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">11. Contact</h2>
             <p class="text-gray-400 leading-relaxed mb-4">
                 Questions about these terms? Email us at
-                <a href="mailto:sipho@velokhaya.com" class="text-brand-red hover:underline">sipho@velokhaya.com</a>
+                <a href={`mailto:${EMAIL_GENERAL}`} class="text-brand-red hover:underline">{EMAIL_GENERAL}</a>
                 or visit our <a href="/contact/" class="text-brand-red hover:underline">contact page</a>.
             </p>
         </div>

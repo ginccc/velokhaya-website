@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { EMAIL_GENERAL } from '../data/contact';
 ---
 
 <BaseLayout
@@ -20,7 +21,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     <section class="py-16 bg-brand-black">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p class="text-gray-500 text-sm mb-10">Effective date: 30 August 2026</p>
+            <p class="text-gray-500 text-sm mb-10">Effective date: 15 October 2026</p>
 
             <h2 class="text-2xl font-bold text-white mb-4">1. Who we are</h2>
             <p class="text-gray-400 leading-relaxed mb-4">
@@ -31,7 +32,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </p>
             <p class="text-gray-400 leading-relaxed mb-4">
                 For any privacy-related questions or requests, contact us at
-                <a href="mailto:sipho@velokhaya.com" class="text-brand-blue hover:underline">sipho@velokhaya.com</a>.
+                <a href={`mailto:${EMAIL_GENERAL}`} class="text-brand-blue hover:underline">{EMAIL_GENERAL}</a>.
             </p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">2. Information we collect</h2>
@@ -45,8 +46,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 <li>
                     <strong class="text-white">Usage information (only with your consent).</strong> If you accept
                     analytics cookies, we collect information about how you use this website — pages viewed,
-                    interactions with page elements, approximate location derived from your IP address, device and
-                    browser type, and web performance measurements.
+                    interactions with page elements, the website or campaign that referred you, approximate location
+                    derived from your IP address, device and browser type, and web performance measurements.
                 </li>
             </ul>
             <p class="text-gray-400 leading-relaxed mb-4">
@@ -69,26 +70,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </p>
             <p class="text-gray-400 leading-relaxed mb-4">
                 Our analytics are provided by Amplitude, configured to store and process data in the European Union.
-                Amplitude sets cookies and collects the usage information described above. You can withdraw or change
-                your consent at any time via the <strong class="text-white">Cookie Preferences</strong> link in the
-                footer of every page.
+                Amplitude sets cookies and collects the usage information described above. Because Amplitude processes
+                this data in the EU, it is transferred outside South Africa, to a jurisdiction with data protection
+                laws comparable to POPIA. You can withdraw or change your consent at any time via the
+                <strong class="text-white">Cookie Preferences</strong> link in the footer of every page; withdrawing
+                stops analytics immediately and removes the analytics cookies from your browser.
             </p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">5. Third-party services</h2>
             <ul class="list-disc pl-6 text-gray-400 leading-relaxed mb-4 space-y-2">
                 <li>
-                    <strong class="text-white">Donations (Yoco).</strong> Card donations are processed on Yoco's
-                    payment page, not on this website. We never see or store your card details. Yoco's own
-                    <a href="https://www.yoco.com/za/privacy/" target="_blank" rel="noopener noreferrer"
-                        class="text-brand-blue hover:underline">privacy policy</a> applies to payments.
-                </li>
-                <li>
                     <strong class="text-white">Amplitude (EU).</strong> Analytics, as described above, only after
                     consent.
-                </li>
-                <li>
-                    <strong class="text-white">Google Fonts.</strong> This site loads fonts from Google's servers,
-                    which involves your browser sending your IP address to Google.
                 </li>
                 <li>
                     <strong class="text-white">External links.</strong> Links to social media platforms and map
@@ -113,7 +106,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <p class="text-gray-400 leading-relaxed mb-4">
                 You have the right to request access to, correction of, or deletion of your personal information, and
                 to object to processing. To exercise these rights, email
-                <a href="mailto:sipho@velokhaya.com" class="text-brand-blue hover:underline">sipho@velokhaya.com</a>.
+                <a href={`mailto:${EMAIL_GENERAL}`} class="text-brand-blue hover:underline">{EMAIL_GENERAL}</a>.
                 If you are not satisfied with our response, you may lodge a complaint with the
                 <a href="https://inforegulator.org.za/" target="_blank" rel="noopener noreferrer"
                     class="text-brand-blue hover:underline">Information Regulator of South Africa</a>.

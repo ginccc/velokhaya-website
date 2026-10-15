@@ -11,15 +11,16 @@ import Mail from '@lucide/astro/icons/mail';
 import Newspaper from '@lucide/astro/icons/newspaper';
 import Phone from '@lucide/astro/icons/phone';
 import Send from '@lucide/astro/icons/send';
+import mapImage from '../assets/images/map-bg.jpg';
+import { EMAIL_GENERAL, EMAIL_MEDIA } from '../data/contact';
 
-const siteUrl = (Astro.site ?? new URL('https://velokhaya.labs.ai')).href.replace(/\/$/, '');
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'SportsClub',
   name: 'Velokhaya Life Cycling Academy',
-  image: `${siteUrl}/images/logo.png`,
+  image: new URL('/images/logo.png', Astro.site).href,
   telephone: '+27 21 361 3456',
-  email: 'sipho@velokhaya.com',
+  email: EMAIL_GENERAL,
   address: {
     '@type': 'PostalAddress',
     streetAddress: '40 Makabeni Road, Village 1 North',
@@ -28,18 +29,27 @@ const schema = {
     postalCode: '7784',
     addressCountry: 'ZA',
   },
+  // Matches the Google Maps listing linked from this page
   geo: {
     '@type': 'GeoCoordinates',
-    latitude: -34.0386,
-    longitude: 18.673,
+    latitude: -34.034283,
+    longitude: 18.660008,
   },
-  url: `${siteUrl}/contact/`,
-  openingHoursSpecification: {
-    '@type': 'OpeningHoursSpecification',
-    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-    opens: '09:00',
-    closes: '17:00',
-  },
+  url: new URL('/contact/', Astro.site).href,
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '09:00',
+      closes: '17:00',
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: 'Saturday',
+      opens: '08:00',
+      closes: '12:00',
+    },
+  ],
 };
 ---
 
@@ -47,7 +57,7 @@ const schema = {
   title="Contact Velokhaya | Visit Us in Khayelitsha | Cape Town"
   description="Whether you want to visit the academy, discuss a partnership, or learn more about our programmes—we're here to help. Contact Velokhaya Life Cycling Academy."
   canonicalPath="/contact/"
-  ogImage="/images/map-bg.jpg"
+  ogImage={mapImage}
 >
   <Fragment slot="schema">
     <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
@@ -118,23 +128,23 @@ const schema = {
 
                     <!-- Contact Methods - Compact Grid -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <a href="mailto:sipho@velokhaya.com" class="flex items-center gap-3 p-4 rounded-xl border border-white/10 hover:border-brand-red/30 hover:bg-brand-dark transition-all group">
+                        <a href={`mailto:${EMAIL_GENERAL}`} class="flex items-center gap-3 p-4 rounded-xl border border-white/10 hover:border-brand-red/30 hover:bg-brand-dark transition-all group">
                             <div class="bg-brand-red/10 p-2.5 rounded-lg group-hover:bg-brand-red/20 transition-colors">
                                 <Mail class="w-5 h-5 text-brand-red" />
                             </div>
                             <div>
                                 <p class="text-xs text-gray-500">General & Partnerships</p>
-                                <p class="text-sm text-white font-medium">sipho@velokhaya.com</p>
+                                <p class="text-sm text-white font-medium">{EMAIL_GENERAL}</p>
                             </div>
                         </a>
 
-                        <a href="mailto:media@velokhaya.com" class="flex items-center gap-3 p-4 rounded-xl border border-white/10 hover:border-brand-yellow/30 hover:bg-brand-dark transition-all group">
+                        <a href={`mailto:${EMAIL_MEDIA}`} class="flex items-center gap-3 p-4 rounded-xl border border-white/10 hover:border-brand-yellow/30 hover:bg-brand-dark transition-all group">
                             <div class="bg-brand-yellow/10 p-2.5 rounded-lg group-hover:bg-brand-yellow/20 transition-colors">
                                 <Newspaper class="w-5 h-5 text-brand-yellow" />
                             </div>
                             <div>
                                 <p class="text-xs text-gray-500">Media & PR</p>
-                                <p class="text-sm text-white font-medium">media@velokhaya.com</p>
+                                <p class="text-sm text-white font-medium">{EMAIL_MEDIA}</p>
                             </div>
                         </a>
 
@@ -159,16 +169,16 @@ const schema = {
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
                                     <label for="first-name" class="block text-sm font-medium text-gray-400 mb-1.5">First Name <span class="text-brand-red">*</span></label>
-                                    <input type="text" id="first-name" name="first-name" autocomplete="given-name" required class="w-full bg-brand-black border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-red transition-all placeholder-gray-600" placeholder="John">
+                                    <input type="text" id="first-name" name="first-name" autocomplete="given-name" required class="w-full bg-brand-black border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-red transition-all placeholder-gray-500" placeholder="John">
                                 </div>
                                 <div>
                                     <label for="last-name" class="block text-sm font-medium text-gray-400 mb-1.5">Last Name <span class="text-brand-red">*</span></label>
-                                    <input type="text" id="last-name" name="last-name" autocomplete="family-name" required class="w-full bg-brand-black border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-red transition-all placeholder-gray-600" placeholder="Doe">
+                                    <input type="text" id="last-name" name="last-name" autocomplete="family-name" required class="w-full bg-brand-black border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-red transition-all placeholder-gray-500" placeholder="Doe">
                                 </div>
                             </div>
                             <div>
                                 <label for="email" class="block text-sm font-medium text-gray-400 mb-1.5">Email Address <span class="text-brand-red">*</span></label>
-                                <input type="email" id="email" name="email" autocomplete="email" required class="w-full bg-brand-black border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-red transition-all placeholder-gray-600" placeholder="john@example.com">
+                                <input type="email" id="email" name="email" autocomplete="email" required class="w-full bg-brand-black border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-red transition-all placeholder-gray-500" placeholder="john@example.com">
                             </div>
                             <div>
                                 <label for="topic" class="block text-sm font-medium text-gray-400 mb-1.5">Subject <span class="text-brand-red">*</span></label>
@@ -185,7 +195,8 @@ const schema = {
                             </div>
                             <div>
                                 <label for="message" class="block text-sm font-medium text-gray-400 mb-1.5">Message <span class="text-brand-red">*</span></label>
-                                <textarea id="message" name="message" rows="4" required class="w-full bg-brand-black border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-red transition-all resize-none placeholder-gray-600" placeholder="How can we help?"></textarea>
+                                <textarea id="message" name="message" rows="4" required maxlength="1000" aria-describedby="message-hint" class="w-full bg-brand-black border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-red transition-all resize-none placeholder-gray-500" placeholder="How can we help?"></textarea>
+                                <p id="message-hint" class="text-gray-500 text-xs mt-1.5">Up to 1,000 characters. For longer messages or attachments, email us directly.</p>
                             </div>
                             <button type="submit" class="w-full bg-brand-red text-white font-bold py-3.5 rounded-lg hover:bg-white hover:text-brand-black transition-all flex items-center justify-center gap-2">
                                 <span>Send Message</span>
@@ -193,13 +204,13 @@ const schema = {
                             </button>
                         </form>
                         <p class="text-gray-500 text-xs mt-3 text-center">
-                            Sending opens your email app with the message pre-filled and addressed to sipho@velokhaya.com.
+                            Sending opens your email app with the message pre-filled and addressed to {EMAIL_GENERAL}.
                         </p>
                         <p id="contact-fallback" class="hidden text-brand-yellow text-sm mt-3 text-center">
                             If your email app didn't open, please email us directly at
-                            <a href="mailto:sipho@velokhaya.com" class="underline">sipho@velokhaya.com</a>.
+                            <a href={`mailto:${EMAIL_GENERAL}`} class="underline">{EMAIL_GENERAL}</a>.
                         </p>
-                        <p class="text-gray-600 text-xs mt-4 text-center">
+                        <p class="text-gray-500 text-xs mt-4 text-center">
                             By submitting, you agree to our <a href="/privacy-policy/" class="text-gray-500 hover:text-white underline">Privacy Policy</a>.
                         </p>
                     </div>
@@ -221,7 +232,7 @@ const schema = {
                     <a href="https://www.facebook.com/Velokhaya/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="p-3 rounded-lg border border-white/10 hover:border-brand-blue/50 hover:bg-brand-blue/10 transition-all group">
                         <Facebook class="w-5 h-5 text-gray-500 group-hover:text-brand-blue transition-colors" />
                     </a>
-                    <a href="https://x.com/Velokhaya" target="_blank" rel="noopener noreferrer" aria-label="X Twitter" class="p-3 rounded-lg border border-white/10 hover:border-white/30 hover:bg-white/5 transition-all group">
+                    <a href="https://x.com/Velokhaya" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" class="p-3 rounded-lg border border-white/10 hover:border-white/30 hover:bg-white/5 transition-all group">
                         <Twitter class="w-5 h-5 text-gray-500 group-hover:text-white transition-colors" />
                     </a>
                     <a href="https://www.instagram.com/velokhaya_academy/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="p-3 rounded-lg border border-white/10 hover:border-brand-red/50 hover:bg-brand-red/10 transition-all group">
@@ -243,7 +254,7 @@ const schema = {
                 Behind every strong programme is a group of people who believe in consistency, discipline, and long term development.
             </p>
             <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
-                <a href="/support/" class="px-6 py-3 bg-brand-red text-white font-bold rounded-full hover:bg-brand-blue hover:text-brand-black transition-all">
+                <a href="/support/" class="px-6 py-3 bg-brand-red text-white font-bold rounded-full hover:bg-brand-blue transition-all">
                     Support the Academy
                 </a>
                 <a href="/impact/" class="px-6 py-3 border border-white/20 text-white font-bold rounded-full hover:text-white hover:border-brand-red transition-all">
@@ -253,10 +264,17 @@ const schema = {
         </div>
     </section>
 
-    <script is:inline>
+    <script is:inline define:vars={{ mailTo: EMAIL_GENERAL }}>
         (function () {
             var form = document.getElementById('contact-form');
             if (!form) return;
+
+            // Links such as /contact/?topic=donation preselect the matching subject (unknown values are ignored)
+            var topicParam = new URLSearchParams(location.search).get('topic');
+            var topicField = document.getElementById('topic');
+            if (topicParam && topicField && topicField.querySelector('option[value="' + CSS.escape(topicParam) + '"]')) {
+                topicField.value = topicParam;
+            }
             form.addEventListener('submit', function (e) {
                 e.preventDefault();
                 var data = new FormData(form);
@@ -271,7 +289,7 @@ const schema = {
                 }
                 var subject = 'Website enquiry — ' + topic;
                 var body = message + '\n\n— ' + first + ' ' + last + '\n' + email;
-                window.location.href = 'mailto:sipho@velokhaya.com' +
+                window.location.href = 'mailto:' + mailTo +
                     '?subject=' + encodeURIComponent(subject) +
                     '&body=' + encodeURIComponent(body);
                 var fallback = document.getElementById('contact-fallback');

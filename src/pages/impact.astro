@@ -45,11 +45,11 @@ import CircleCheck from '@lucide/astro/icons/circle-check';
             </div>
         </section>
 
-        <!-- Pillar 1: Sport (The Carrot) -->
+        <!-- Pillar 1: Cycling Pathways -->
         <section class="py-24 bg-brand-dark relative overflow-hidden">
             <!-- Background Accent -->
             <div
-                class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_left,_var(--tw-gradient-stops))] from-brand-yellow/5 via-transparent to-transparent">
+                class="absolute top-0 left-0 w-full h-full bg-radial-[circle_at_top_left] from-brand-yellow/5 via-transparent to-transparent">
             </div>
 
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -73,7 +73,7 @@ import CircleCheck from '@lucide/astro/icons/circle-check';
                                     <span class="font-bold text-brand-yellow">01</span>
                                 </div>
                                 <div>
-                                    <h4 class="text-xl font-bold text-white mb-2">BMX: Foundations of Skill</h4>
+                                    <h3 class="text-xl font-bold text-white mb-2">BMX: Foundations of Skill</h3>
                                     <p class="text-gray-500">BMX is the entry point for younger riders. The technical demands of the track develop balance, bike handling, and confidence. <br><span
                                             class="text-brand-yellow text-sm mt-1 block">Highlight: Uyanda, Current BMX Development Rider</span></p>
                                 </div>
@@ -84,7 +84,7 @@ import CircleCheck from '@lucide/astro/icons/circle-check';
                                     <span class="font-bold text-brand-yellow">02</span>
                                 </div>
                                 <div>
-                                    <h4 class="text-xl font-bold text-white mb-2">Road Cycling: Performance Pathway</h4>
+                                    <h3 class="text-xl font-bold text-white mb-2">Road Cycling: Performance Pathway</h3>
                                     <p class="text-gray-500">For older athletes, road cycling focuses on endurance, race craft, and high volume training. <br><span
                                             class="text-brand-yellow text-sm mt-1 block">Highlight: Nicholas Dlamini, Olympian</span></p>
                                 </div>
@@ -92,8 +92,8 @@ import CircleCheck from '@lucide/astro/icons/circle-check';
                         </div>
                     </div>
                     <div class="relative">
-                        <!-- Editorial panel. To use a photograph instead, replace the inner contents with an
-                             <img> plus the gradient overlay, keeping the caption block. -->
+                        {/* Editorial panel. To use a photograph instead, replace the inner contents with an
+                             astro:assets <Image> plus the gradient overlay, keeping the caption block. */}
                         <div
                             class="aspect-[4/3] rounded-2xl overflow-hidden border border-brand-yellow/20 relative bg-gradient-to-br from-brand-yellow/10 via-brand-dark to-brand-black">
                             <Bike
@@ -102,7 +102,7 @@ import CircleCheck from '@lucide/astro/icons/circle-check';
                             <div class="relative z-10 h-full flex flex-col justify-end p-8">
                                 <p class="text-brand-yellow font-bold mb-1">Global Impact</p>
                                 <p class="text-white text-sm opacity-80 max-w-[80%]">Our riders compete on the world
-                                    stage, proving that talent is universal, even if opportunity is not.</p>
+                                    stage.</p>
                             </div>
                         </div>
                         <!-- Floating Stat Card -->
@@ -116,18 +116,18 @@ import CircleCheck from '@lucide/astro/icons/circle-check';
             </div>
         </section>
 
-        <!-- Pillar 2: Education (The Purpose) -->
+        <!-- Pillar 2: Education -->
         <section class="py-24 bg-brand-black relative overflow-hidden">
             <!-- Background Accent -->
             <div
-                class="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_center_right,_var(--tw-gradient-stops))] from-brand-blue/5 via-transparent to-transparent">
+                class="absolute top-0 right-0 w-full h-full bg-radial-[circle_at_center_right] from-brand-blue/5 via-transparent to-transparent">
             </div>
 
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     <div class="order-2 lg:order-1 relative">
-                        <!-- Editorial panel. To use a photograph instead, replace the inner contents with an
-                             <img> plus the gradient overlay, keeping the caption block. -->
+                        {/* Editorial panel. To use a photograph instead, replace the inner contents with an
+                             astro:assets <Image> plus the gradient overlay, keeping the caption block. */}
                         <div
                             class="aspect-[4/3] rounded-2xl overflow-hidden border border-brand-blue/20 relative bg-gradient-to-br from-brand-blue/15 via-brand-dark to-brand-black">
                             <GraduationCap
@@ -135,8 +135,8 @@ import CircleCheck from '@lucide/astro/icons/circle-check';
                                 stroke-width="1" />
                             <div class="relative z-10 h-full flex flex-col justify-end p-8">
                                 <p class="text-brand-blue font-bold mb-1">ICT & Life Skills Centre</p>
-                                <p class="text-white text-sm opacity-80 max-w-[80%]">Bridging the digital divide through
-                                    technology access and structured learning.</p>
+                                <p class="text-white text-sm opacity-80 max-w-[80%]">Technology access and structured
+                                    learning.</p>
                             </div>
                         </div>
                         <!-- Floating Stat Card -->
@@ -162,12 +162,12 @@ import CircleCheck from '@lucide/astro/icons/circle-check';
                         <div class="space-y-6">
                             <div
                                 class="p-6 rounded-xl bg-white/5 border border-white/10 hover:border-brand-blue/50 transition-colors">
-                                <h4 class="text-lg font-bold text-white mb-2">Academic Support</h4>
+                                <h3 class="text-lg font-bold text-white mb-2">Academic Support</h3>
                                 <p class="text-gray-400 text-sm">Partnerships with organisations such as The Answer Series and Infinite Family provide study resources and mentorship.</p>
                             </div>
                             <div
                                 class="p-6 rounded-xl bg-white/5 border border-white/10 hover:border-brand-blue/50 transition-colors">
-                                <h4 class="text-lg font-bold text-white mb-2">Highlight: Xolisa Makubalo</h4>
+                                <h3 class="text-lg font-bold text-white mb-2">Highlight: Xolisa Makubalo</h3>
                                 <p class="text-gray-400 text-sm">Head BMX Coach with a degree in Sports Recreation and Exercise Science from UWC. Has coached multiple BMX teams to national victories.</p>
                             </div>
                         </div>
@@ -176,11 +176,11 @@ import CircleCheck from '@lucide/astro/icons/circle-check';
             </div>
         </section>
 
-        <!-- Pillar 3: Nutrition (The Fuel) -->
+        <!-- Pillar 3: Nutrition -->
         <section class="py-24 bg-brand-dark relative overflow-hidden">
             <!-- Background Accent -->
             <div
-                class="absolute bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-brand-red/5 via-transparent to-transparent">
+                class="absolute bottom-0 left-0 w-full h-full bg-radial-[circle_at_bottom_left] from-brand-red/5 via-transparent to-transparent">
             </div>
 
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -212,8 +212,8 @@ import CircleCheck from '@lucide/astro/icons/circle-check';
                         class="bg-black/40 p-8 rounded-2xl border border-white/10 text-center hover:border-brand-red/30 transition-all">
                         <HeartHandshake class="w-10 h-10 text-brand-red mx-auto mb-4" />
                         <h3 class="text-xl font-bold text-white mb-2">Dignity First</h3>
-                        <p class="text-gray-500 text-sm">We don't run a soup kitchen line. We provide a family dining
-                            environment with proper crockery and cutlery to ensure dignity.</p>
+                        <p class="text-gray-500 text-sm">We provide a family dining environment with proper crockery
+                            and cutlery to ensure dignity.</p>
                     </div>
                     <div
                         class="bg-black/40 p-8 rounded-2xl border border-white/10 text-center hover:border-brand-red/30 transition-all">

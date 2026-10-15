@@ -72,22 +72,25 @@
 ### G. Support ("Ride With Velokhaya")
 *   **Headline:** `RIDE WITH VELOKHAYA`
 *   **Subhead:** `Behind every strong programme is a group of people who believe in consistency, discipline, and long term development.`
-*   **Card 1 (Featured):** `MAKE A DONATION`. "Support the work that happens every day. Your contribution supports the core operations of Velokhaya's sport, education, and nutrition programmes." CTA: `Donate Now via Card` → https://pay.yoco.com/velokhaya (secure once-off card payment via Yoco).
-*   **Card 2:** `CORPORATE PARTNERSHIPS`. "Partner with a proven, long term development programme." CTA: `Discuss a Partnership` → /contact/.
-*   **REMOVED FOR LAUNCH — do not reinstate without sign-off:** the R200/mo and R1,000/mo recurring subscription tiers (no payment mechanism exists for them) and the Direct Bank Transfer section (bank account details must not appear on the site).
+*   **Card 1 (Featured):** `MAKE A DONATION`. "Support the work that happens every day. Your contribution supports the core operations of Velokhaya's sport, education, and nutrition programmes." CTA: `Contact Us to Donate` → /contact/?topic=donation (preselects "Making a Donation").
+*   **Card 2:** `CORPORATE PARTNERSHIPS`. "Partner with a proven, long term development programme." CTA: `Discuss a Partnership` → /contact/?topic=sponsorship.
+*   **REMOVED FOR LAUNCH — do not reinstate without sign-off:** the R200/mo and R1,000/mo recurring subscription tiers (no payment mechanism exists for them), the Direct Bank Transfer section (bank account details must not appear on the site), and the Yoco card-payment link (https://pay.yoco.com/velokhaya returned 404 on 2026-10-15; the site currently has no online payment method).
 
 ## 4. DATA REPOSITORY (Variables)
-*   **Live domain:** https://velokhaya.labs.ai (GitHub Pages via CNAME; also set as `site` in astro.config.mjs — canonicals, OG tags, JSON-LD, sitemap, and robots.txt must all derive from it). Do NOT use velokhaya.com for URLs; it only appears in the email addresses below.
+*   **Live domain:** https://velokhaya.labs.ai for now; planned moves to velokhaya.com and later velokhaya.org. The URL is defined once as `site` in astro.config.mjs — canonicals, OG tags, JSON-LD, sitemap.xml (`src/pages/sitemap.xml.ts`) and robots.txt (`src/pages/robots.txt.ts`) all derive from it. The custom domain itself is set in GitHub repo Settings → Pages (a CNAME file is ignored for Actions deployments). Full steps: README → "Changing the domain". Never hard-code the site domain anywhere else.
+*   **Images:** Content photos live in `src/assets/images/` and are rendered with `astro:assets` `<Image>` (resized, WebP, responsive). Only `public/images/logo.png` stays in `public/` because JSON-LD and the touch icon need a fixed URL. Do not add photos to `public/`.
+*   **Fonts & icons:** Inter is self-hosted via the Astro Fonts API; icons are build-time SVGs from `@lucide/astro`. Do not add Google Fonts or CDN script tags — the privacy policy states there are none.
+*   **Analytics:** `@amplitude/analytics-browser` (npm, EU server zone), bundled from `src/scripts/cookie-consent.ts` and lazy-loaded only after consent. Session replay is deliberately not installed. Never paste Amplitude's CDN/unified-script snippet: it pinned an SRI hash that went stale and silently disabled analytics, and it pulls in session replay controlled from the Amplitude dashboard, which the privacy policy does not cover.
 *   **Address:** 40 Makabeni Road, Village 1 North, Khayelitsha, Cape Town, 7784.
 *   **Hours:** Mon-Fri 09:00-17:00, Sat 08:00-12:00.
-*   **Contact:** sipho@velokhaya.com (primary — general enquiries, partnerships, contact form, and legal/privacy requests) | media@velokhaya.com (PR). Do NOT use info@velokhaya.com; it was removed from the site.
+*   **Contact:** sipho@velokhaya.com (primary — general enquiries, partnerships, contact form, and legal/privacy requests) | media@velokhaya.com (PR). Do NOT use info@velokhaya.com; it was removed from the site. Addresses are defined once in `src/data/contact.ts` — never hard-code them in pages.
 *   **Phone:** +27 21 361 3456.
-*   **Donations:** https://pay.yoco.com/velokhaya (Yoco once-off card payments). Direct bank details were removed for launch — do not publish account numbers without sign-off.
+*   **Donations:** Arranged via the contact form / sipho@velokhaya.com. There is no online payment method on the site: the Yoco link was removed (dead) and bank details must not be published without sign-off.
 *   **Social:** facebook.com/Velokhaya | x.com/Velokhaya | instagram.com/velokhaya_academy (verified handle — NOT instagram.com/velokhaya) | linkedin.com/company/velokhaya.
 *   **Legal pages:** /privacy-policy/ and /terms-of-use/ exist and are linked from the footer, the contact form consent line, and the cookie banner. The cookie banner offers Accept All / Essential Only / Manage Preferences; analytics (Amplitude EU) load only after consent.
 
 ## 5. FAQ DICTIONARY
 *   **How to join?** Entry based on interest, commitment, and readiness to engage with both training and learning.
 *   **Bike donations?** Yes, if they meet safety standards.
-*   **Financial support?** Once-off donations (via Yoco), programme support, or strategic partnerships — no recurring/monthly tiers.
+*   **Financial support?** Once-off donations (arranged by contacting us), programme support, or strategic partnerships — no recurring/monthly tiers.
 *   **Location?** Khayelitsha, Cape Town.

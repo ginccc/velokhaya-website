@@ -1,16 +1,19 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import heroRiders from '../assets/images/hero-riders.jpg';
+import pelotonRider from '../assets/images/peloton-rider.jpg';
+import nicPortrait from '../assets/images/hof-nic.jpg';
 import ChevronDown from '@lucide/astro/icons/chevron-down';
 import Quote from '@lucide/astro/icons/quote';
 
-const siteUrl = (Astro.site ?? new URL('https://velokhaya.labs.ai')).href.replace(/\/$/, '');
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'NGO',
   name: 'Velokhaya Life Cycling Academy',
   alternateName: 'Velokhaya',
-  url: siteUrl,
-  logo: `${siteUrl}/images/logo.png`,
+  url: new URL('/', Astro.site).href,
+  logo: new URL('/images/logo.png', Astro.site).href,
   description:
     'A high-performance cycling academy in Khayelitsha developing athletes through cycling, education, and nutrition.',
   foundingDate: '2003',
@@ -45,9 +48,9 @@ const schema = {
             <div class="absolute inset-0 z-0">
                 <div class="absolute inset-0 bg-gradient-to-r from-brand-black via-brand-black/80 to-brand-black/20 z-10">
                 </div>
-                <img src="/images/hero-riders.jpg" alt="Velokhaya cyclists riding in formation through Khayelitsha"
-                    width="2048" height="2048" fetchpriority="high"
-                    class="w-full h-full object-cover object-[center_20%] md:object-[center_30%] lg:object-[center_25%]">
+                <Image src={heroRiders} alt="Velokhaya cyclists riding in formation through Khayelitsha"
+                    widths={[640, 960, 1280, 1600, 2048]} sizes="max(100vw, 100vh)" priority
+                    class="w-full h-full object-cover object-[center_20%] md:object-[center_30%] lg:object-[center_25%]" />
             </div>
             <div class="relative z-20 max-w-7xl mx-auto px-6 sm:px-8 lg:px-8 w-full">
                 <div class="max-w-3xl">
@@ -63,11 +66,11 @@ const schema = {
                     </p>
                     <div class="flex flex-col md:flex-row items-stretch md:items-start gap-4">
                         <a href="/support/"
-                            class="flex justify-center items-center w-full md:w-64 px-8 py-4 bg-brand-red border border-transparent text-white font-bold rounded-full hover:bg-brand-blue hover:text-brand-black transition-all shadow-lg shadow-brand-red/25 text-base whitespace-nowrap">
+                            class="flex justify-center items-center w-full md:w-64 px-8 py-4 bg-brand-red border border-transparent text-white font-bold rounded-full hover:bg-brand-blue transition-all shadow-lg shadow-brand-red/25 text-base whitespace-nowrap">
                             RIDE WITH VELOKHAYA
                         </a>
                         <a href="/contact/"
-                            class="flex justify-center items-center w-full md:w-64 px-8 py-4 bg-black border border-white/20 hover:bg-brand-red hover:text-brand-black text-white font-bold rounded-full transition-all text-base whitespace-nowrap">
+                            class="flex justify-center items-center w-full md:w-64 px-8 py-4 bg-black border border-white/20 hover:bg-brand-red text-white font-bold rounded-full transition-all text-base whitespace-nowrap">
                             VISIT THE ACADEMY
                         </a>
                     </div>
@@ -109,9 +112,9 @@ const schema = {
                     </div>
                     <div
                         class="relative h-96 w-full rounded-2xl shadow-2xl border border-white/10 overflow-hidden group">
-                        <img src="/images/peloton-rider.jpg" alt="Velokhaya rider in team kit ready to ride"
-                            width="2048" height="2048" loading="lazy"
-                            class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                        <Image src={pelotonRider} alt="Velokhaya rider in team kit ready to ride"
+                            widths={[400, 640, 960, 1280]} sizes="(min-width: 1280px) 620px, (min-width: 768px) 50vw, 100vw"
+                            class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" />
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                         <div class="absolute bottom-4 right-6 text-right">
                             <p class="text-brand-yellow font-black text-xl tracking-tighter uppercase">The Peloton</p>
@@ -192,8 +195,8 @@ const schema = {
                         </blockquote>
                         <div class="flex items-center gap-4">
                             <div class="w-14 h-14 rounded-full bg-gray-800 overflow-hidden">
-                                <img src="/images/hof-nic.jpg" alt="Nicholas Dlamini" width="1024" height="1024"
-                                    loading="lazy" class="w-full h-full object-cover">
+                                <Image src={nicPortrait} alt="Nicholas Dlamini" width={168} height={168}
+                                    class="w-full h-full object-cover" />
                             </div>
                             <div>
                                 <p class="font-bold text-white">Nicholas Dlamini</p>
