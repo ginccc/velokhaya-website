@@ -44,7 +44,7 @@ src/pages/              one file per route; robots.txt.ts and sitemap.xml.ts gen
 src/layouts/BaseLayout.astro
                         <head> (SEO, OG, Twitter, canonical, font), header, footer, consent script,
                         mobile-menu and navbar scripts. Props: title, description, canonicalPath,
-                        ogImage (an imported image), noindex
+                        ogImage (an imported image), ogImageAlt, socialTitle, noindex
 src/components/         Header (nav + active state), Footer, icons/ (brand icons, see §5)
 src/scripts/cookie-consent.ts
                         consent banner and lazy Amplitude loader (bundled module)
@@ -52,7 +52,9 @@ src/data/contact.ts     EMAIL_GENERAL, EMAIL_MEDIA
 src/assets/images/      content photos (processed by astro:assets)
 src/styles/global.css   Tailwind import and theme tokens (brand colours, font, gray-500 override)
 src/styles/cookie-consent.css   small utility classes used by the banner
-public/                 favicon.svg and images/logo.png only
+public/                 favicon.svg and images/logo.png only (fixed URL for JSON-LD and the touch icon)
+scripts/generate-og-image.mjs
+                        builds src/assets/images/og-default.jpg (npm run og-image)
 .github/workflows/      ci.yml (PRs and branches: build only), deploy.yml (main: build + deploy)
 .husky/pre-commit       runs npm run check
 ```
@@ -65,9 +67,15 @@ public/                 favicon.svg and images/logo.png only
 - There's no `CNAME` file on purpose: GitHub ignores it for Actions deployments, and the domain is set in Settings → Pages. Don't re-add one.
 
 ### Images
-- Put content photos in `src/assets/images/` and render them with `astro:assets` `<Image>`, giving `widths` and `sizes` that match the displayed size (see existing pages for examples). Use `priority` only on the above-the-fold hero.
-- Only the logo stays in `public/`, because JSON-LD and the apple-touch-icon need a fixed URL. Don't add photos to `public/`.
-- `ogImage` on `BaseLayout` takes an **imported** image; it's rendered at 1200×630 automatically.
+- Put content photos in `src/assets/images/` and render them with `astro:assets` `<Picture formats={['avif', 'webp']}>`, giving `widths` and `sizes` that match the displayed size (see existing pages for examples). AVIF is about half the size of WebP; browsers fall back automatically. Use `priority` only on the above-the-fold hero, and keep its largest width at 1600 (phones would otherwise download 2048px).
+- The header and footer logo is `src/assets/images/logo.png` rendered with `<Image>` at its display height (`densities={[1, 2]}`). A copy stays in `public/images/logo.png` because JSON-LD and the apple-touch-icon need a fixed URL. Don't add photos to `public/`.
+- *Why:* the audience includes visitors on slow, expensive mobile data. Keep the homepage's first screen on a phone around 250 KB in total; measure before and after any image change.
+
+### Social previews (Open Graph / X)
+- Pages without their own `ogImage` use `src/assets/images/og-default.jpg`: the hero photo cropped so the riders' heads stay in frame, plus the logo centred at the bottom (chat apps crop the sides; WhatsApp shows roughly 3:2, some apps 1:1). Regenerate it with `npm run og-image` after changing the hero photo or logo.
+- `ogImage` takes an **imported** image and is rendered at 1200×630. Pass `ogImageAlt` with it; the default image has its own alt text.
+- `socialTitle` sets a shorter preview title than the browser `title` (the homepage uses "Velokhaya Life Cycling Academy"). Check how a crop looks before using a photo as `ogImage`: centre crops cut off heads, and generic stock images don't belong in previews.
+- Platforms cache previews. After changing one, refresh it with the Facebook Sharing Debugger and the LinkedIn Post Inspector; WhatsApp only refetches for links it hasn't seen.
 - *Why:* raw originals were up to 800 KB each. Optimised WebP variants are 6–214 KB.
 
 ### Fonts, icons, third parties
@@ -80,7 +88,8 @@ public/                 favicon.svg and images/logo.png only
 - **Never paste Amplitude's CDN or "unified script" snippet.** It pinned an SRI hash to a URL whose contents changed, so browsers blocked it and analytics silently collected nothing. It also pulls in session replay, which is configured from the Amplitude dashboard and not covered by the privacy policy. Session replay must not be installed.
 - Consent states live in `localStorage.cookie_consent`: `accepted` or `essential`; anything else means "not decided yet".
 - Withdrawal must take effect immediately. It calls `setOptOut` and reloads the page. Then, on every page load where consent isn't `accepted`, all `AMP*` cookies and storage are purged *before* any SDK code runs. Don't move that clean-up back to the moment of withdrawal: the SDK rewrites its storage while shutting down.
-- The banner is a modal dialog (`role="dialog"`, focus moved in and restored, page behind made `inert`). It must not auto-open on `/privacy-policy/` or `/terms-of-use/`: visitors need to read the policy before deciding.
+- The banner is a **non-blocking** card fixed to the bottom of the screen (`role="region"`): no overlay, no scroll lock, no `inert` page, and it never steals focus on page load. *Why:* browsers such as Brave hide cookie notices, and a modal banner then left visitors with a frozen, unscrollable page. Since nothing is tracked before consent, blocking is unnecessary. Keep it compact (about 250px tall on a phone), with "Accept All" and "Essential Only" the same size so declining is as easy as accepting.
+- Focus moves into the banner only when the visitor opens it from the footer, and returns to that button when it closes.
 - The footer's "Cookie Preferences" button reopens the banner on every page.
 
 ### Contact, donations, legal

@@ -79,51 +79,44 @@ function withdrawTracking() {
     location.reload();
 }
 
-function showBanner() {
+// The banner is a non-blocking card: no overlay, no scroll lock, no inert page. Nothing is tracked until
+// the visitor accepts, so there is no reason to block reading, and browsers that hide consent notices
+// (e.g. Brave) would otherwise leave visitors with a frozen page. Focus only moves into the banner when
+// the visitor opened it themselves (footer "Cookie Preferences"), never on page load.
+function showBanner(userInitiated = false) {
     // Check if banner already exists
     if (document.getElementById('cookie-consent-banner')) return;
 
-    const opener = document.activeElement as HTMLElement | null;
+    const opener = userInitiated ? (document.activeElement as HTMLElement | null) : null;
 
-    // Create overlay
-    const overlay = document.createElement('div');
-    overlay.id = 'cookie-consent-overlay';
-    // Using standard Tailwind classes where possible, and custom classes defined in cookie-consent.css
-    overlay.className = 'fixed inset-0 bg-black-50 backdrop-blur-sm z-9998 transition-opacity duration-300 flex items-center justify-center';
-
-    // Create modal
     const banner = document.createElement('div');
     banner.id = 'cookie-consent-banner';
-    banner.setAttribute('role', 'dialog');
-    banner.setAttribute('aria-modal', 'true');
+    banner.setAttribute('role', 'region');
     banner.setAttribute('aria-labelledby', 'cookie-consent-title');
-    banner.className = 'relative bg-brand-dark text-white p-8 rounded-2xl shadow-2xl z-9999 max-w-lg w-90-percent border border-white-10';
+    // Custom classes (bg-white-10, border-white-10, ...) are defined in cookie-consent.css
+    banner.className = 'fixed bottom-3 inset-x-3 sm:inset-x-auto sm:right-6 sm:bottom-6 sm:w-[26rem] max-h-[85vh] overflow-y-auto z-[9999] bg-brand-dark text-white p-5 rounded-2xl shadow-2xl border border-white-10';
 
-    // Content for the initial view
+    // Content for the initial view: compact, so it covers as little of a phone screen as possible.
+    // "Accept All" and "Essential Only" are the same size, side by side: declining is as easy as accepting.
     const initialContent = `
-        <div class="text-center">
-            <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-white-10 mb-4">
-                <svg class="h-6 w-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                </svg>
-            </div>
-            <h2 id="cookie-consent-title" class="text-xl font-bold font-heading text-white mb-2">We value your privacy</h2>
-            <p class="text-gray-400 mb-6 text-sm leading-relaxed">
+        <div>
+            <h2 id="cookie-consent-title" class="text-base font-bold font-heading text-white mb-1">We value your privacy</h2>
+            <p class="text-gray-400 mb-4 text-sm leading-relaxed">
                 We use analytics cookies to understand how this site is used and to improve it.
                 They are only set with your consent. Read our
                 <a href="/privacy-policy/" class="underline text-gray-300 hover-text-accent">Privacy Policy</a>.
             </p>
-            <div class="flex flex-col space-y-3">
-                <button type="button" id="cookie-accept-all" class="w-full px-4 py-3 bg-accent hover-brightness-105 text-white rounded-lg text-sm font-bold transition-all shadow-md cursor-pointer">
+            <div class="grid grid-cols-2 gap-2">
+                <button type="button" id="cookie-accept-all" class="w-full px-3 py-2.5 bg-accent hover-brightness-105 text-white rounded-lg text-sm font-bold transition-all cursor-pointer">
                     Accept All
                 </button>
-                <button type="button" id="cookie-essential-only" class="w-full px-4 py-3 bg-brand-black border border-white-10 hover-bg-brand-gray text-white rounded-lg text-sm font-medium transition-colors cursor-pointer">
+                <button type="button" id="cookie-essential-only" class="w-full px-3 py-2.5 bg-brand-black border border-white-10 hover-bg-brand-gray text-white rounded-lg text-sm font-bold transition-colors cursor-pointer">
                     Essential Only
                 </button>
-                <button type="button" id="cookie-manage" class="w-full px-4 py-3 bg-brand-black border border-white-10 hover-bg-brand-gray text-white rounded-lg text-sm font-medium transition-colors cursor-pointer">
-                    Manage Preferences
-                </button>
             </div>
+            <button type="button" id="cookie-manage" class="mt-1 w-full py-2.5 text-center text-sm text-gray-400 underline underline-offset-4 hover-text-accent cursor-pointer">
+                Manage Preferences
+            </button>
         </div>
     `;
 
@@ -164,17 +157,7 @@ function showBanner() {
     `;
 
     banner.innerHTML = initialContent;
-    overlay.appendChild(banner);
-    document.body.appendChild(overlay);
-
-    // Prevent scrolling when modal is open
-    document.body.style.overflow = 'hidden';
-
-    // Make the page behind the dialog unreachable by keyboard and screen readers while it is open.
-    const background = Array.from(document.body.children).filter(function (el): el is HTMLElement {
-        return el !== overlay && el.tagName !== 'SCRIPT';
-    });
-    background.forEach(function (el) { el.inert = true; });
+    document.body.appendChild(banner);
 
     function focusFirstControl() {
         const first = banner.querySelector<HTMLElement>('button, input:not([disabled]), a[href]');
@@ -182,9 +165,7 @@ function showBanner() {
     }
 
     function closeBanner() {
-        background.forEach(function (el) { el.inert = false; });
-        overlay.remove();
-        document.body.style.overflow = '';
+        banner.remove();
         if (opener && opener !== document.body && document.contains(opener)) opener.focus();
     }
 
@@ -228,15 +209,15 @@ function showBanner() {
     }
 
     attachInitialListeners();
-    focusFirstControl();
+    if (userInitiated) focusFirstControl();
 }
 
 // Always available so the footer "Cookie Preferences" button can reopen the banner
-window.showCookieBanner = showBanner;
+window.showCookieBanner = function () { showBanner(true); };
 
 function bindSettingsButton() {
     const btn = document.getElementById('cookie-settings-btn');
-    if (btn) btn.addEventListener('click', showBanner);
+    if (btn) btn.addEventListener('click', function () { showBanner(true); });
 }
 
 if (document.readyState === 'loading') {
@@ -245,10 +226,6 @@ if (document.readyState === 'loading') {
     bindSettingsButton();
 }
 
-// The banner links to the legal pages, so it must not block them: visitors have to be able to read
-// the policy before deciding. Analytics stay off there until a choice is made (footer button).
-const onLegalPage = /^\/(privacy-policy|terms-of-use)\/?$/.test(location.pathname);
-
 const consent = readConsent();
 if (consent === 'accepted') {
     enableTracking();
@@ -256,9 +233,9 @@ if (consent === 'accepted') {
     purgeAnalyticsStorage();
 }
 
-if (consent !== 'accepted' && consent !== 'essential' && !onLegalPage) {
+if (consent !== 'accepted' && consent !== 'essential') {
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', showBanner);
+        document.addEventListener('DOMContentLoaded', function () { showBanner(); });
     } else {
         showBanner();
     }

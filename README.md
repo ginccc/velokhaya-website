@@ -76,6 +76,7 @@ src/
   assets/images/    Content photos, optimised at build time
   styles/           Tailwind theme (global.css) and cookie-banner styles
 public/             Served as-is: favicon and the logo (needs a fixed URL)
+scripts/            generate-og-image.mjs: the default social-preview image (npm run og-image)
 GEMINI.md           Brand rules and the approved copy dictionary
 AGENTS.md           Instructions for AI agents working on this repo
 ```

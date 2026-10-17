@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import { Picture } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Quote from '@lucide/astro/icons/quote';
 import teamGroup from '../assets/images/team-group.jpg';
@@ -15,6 +15,7 @@ import xolisaPortrait from '../assets/images/hof-xolisa.jpg';
   description="Founded in Khayelitsha in 2003, Velokhaya has grown through consistency, commitment, and clear standards. Our work is defined by structured training and shared expectations."
   canonicalPath="/our-approach/"
   ogImage={teamGroup}
+  ogImageAlt="The Velokhaya cycling team standing together in team kit"
 >
 
     <!-- Header -->
@@ -34,7 +35,7 @@ import xolisaPortrait from '../assets/images/hof-xolisa.jpg';
             <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                 <div class="order-2 md:order-1">
                     <div class="aspect-[4/3] rounded-2xl shadow-2xl border border-white/10 overflow-hidden">
-                        <Image src={teamGroup} alt="Velokhaya cycling team standing together in team kit"
+                        <Picture formats={['avif', 'webp']} src={teamGroup} alt="Velokhaya cycling team standing together in team kit"
                             widths={[480, 720, 1080, 1440]} sizes="(min-width: 1280px) 650px, (min-width: 768px) 55vw, 110vw"
                             class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" />
                     </div>
@@ -143,7 +144,7 @@ import xolisaPortrait from '../assets/images/hof-xolisa.jpg';
                 <div
                     class="bg-brand-black p-6 rounded-2xl border border-white/5 hover:border-brand-yellow/50 transition-all group">
                     <div class="h-96 bg-gray-800 rounded-xl mb-6 overflow-hidden relative">
-                        <Image src={siphoPortrait}
+                        <Picture formats={['avif', 'webp']} src={siphoPortrait}
                             alt="Sipho Mona, General Manager of Velokhaya Life Cycling Academy"
                             widths={[400, 800]} sizes="(min-width: 640px) 400px, 100vw"
                             class="w-full h-full object-cover object-top opacity-70 group-hover:opacity-100 transition-opacity" />
@@ -158,7 +159,7 @@ import xolisaPortrait from '../assets/images/hof-xolisa.jpg';
                 <div
                     class="bg-brand-black p-6 rounded-2xl border border-white/5 hover:border-brand-red/50 transition-all group">
                     <div class="h-96 bg-gray-800 rounded-xl mb-6 overflow-hidden relative">
-                        <Image src={luthandoPortrait} alt="Luthando Kaka, Board Member of Velokhaya"
+                        <Picture formats={['avif', 'webp']} src={luthandoPortrait} alt="Luthando Kaka, Board Member of Velokhaya"
                             widths={[400, 640]} sizes="(min-width: 640px) 400px, 100vw"
                             class="w-full h-full object-cover object-top opacity-70 group-hover:opacity-100 transition-opacity" />
                     </div>
@@ -179,7 +180,7 @@ import xolisaPortrait from '../assets/images/hof-xolisa.jpg';
                 <div
                     class="p-6 bg-brand-dark rounded-2xl border border-white/10 hover:border-brand-yellow transition-all group">
                     <div class="w-20 h-20 mx-auto bg-gray-800 rounded-full mb-4 overflow-hidden">
-                        <Image src={nicPortrait} alt="Nicholas Dlamini, Tour de France cyclist and Olympian" width={240} height={240}
+                        <Picture formats={['avif', 'webp']} src={nicPortrait} alt="Nicholas Dlamini, Tour de France cyclist and Olympian" width={240} height={240}
                             class="w-full h-full object-cover" />
                     </div>
                     <h3 class="text-white font-bold text-lg">Nicholas Dlamini</h3>
@@ -192,7 +193,7 @@ import xolisaPortrait from '../assets/images/hof-xolisa.jpg';
                 <div
                     class="p-6 bg-brand-dark rounded-2xl border border-white/10 hover:border-brand-red transition-all group">
                     <div class="w-20 h-20 mx-auto bg-gray-800 rounded-full mb-4 overflow-hidden">
-                        <Image src={anitaPortrait} alt="Anita Zenani, World #6 ranked BMX rider" width={240} height={240}
+                        <Picture formats={['avif', 'webp']} src={anitaPortrait} alt="Anita Zenani, World #6 ranked BMX rider" width={240} height={240}
                             class="w-full h-full object-cover" />
                     </div>
                     <h3 class="text-white font-bold text-lg">Anita Zenani</h3>
@@ -205,7 +206,7 @@ import xolisaPortrait from '../assets/images/hof-xolisa.jpg';
                 <div
                     class="p-6 bg-brand-dark rounded-2xl border border-white/10 hover:border-brand-blue transition-all group">
                     <div class="w-20 h-20 mx-auto bg-gray-800 rounded-full mb-4 overflow-hidden">
-                        <Image src={xolisaPortrait} alt="Xolisa Makubalo, Head BMX Coach at Velokhaya" width={240} height={240}
+                        <Picture formats={['avif', 'webp']} src={xolisaPortrait} alt="Xolisa Makubalo, Head BMX Coach at Velokhaya" width={240} height={240}
                             class="w-full h-full object-cover" />
                     </div>
                     <h3 class="text-white font-bold text-lg">Xolisa Makubalo</h3>

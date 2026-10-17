@@ -11,7 +11,6 @@ import Mail from '@lucide/astro/icons/mail';
 import Newspaper from '@lucide/astro/icons/newspaper';
 import Phone from '@lucide/astro/icons/phone';
 import Send from '@lucide/astro/icons/send';
-import mapImage from '../assets/images/map-bg.jpg';
 import { EMAIL_GENERAL, EMAIL_MEDIA } from '../data/contact';
 
 const schema = {
@@ -57,7 +56,6 @@ const schema = {
   title="Contact Velokhaya | Visit Us in Khayelitsha | Cape Town"
   description="Whether you want to visit the academy, discuss a partnership, or learn more about our programmes—we're here to help. Contact Velokhaya Life Cycling Academy."
   canonicalPath="/contact/"
-  ogImage={mapImage}
 >
   <Fragment slot="schema">
     <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
