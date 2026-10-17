@@ -61,7 +61,7 @@ public/                 favicon.svg and images/logo.png only
 
 ### Domain and URLs
 - Never hard-code the site domain. Build absolute URLs from `Astro.site`, e.g. `new URL('/contact/', Astro.site).href`. Canonicals, OG tags, JSON-LD, the sitemap, and `robots.txt` all do this.
-- *Why:* the domain moves from `velokhaya.labs.ai` to `velokhaya.com` and later `velokhaya.org`. Practice builds with `astro build --site https://velokhaya.org` came out with zero leftover references. Keep it that way.
+- *Why:* the site lives at `velokhaya.com` and may move to `velokhaya.org`. Practice builds with `astro build --site https://velokhaya.org` came out with zero leftover references. Keep it that way.
 - There's no `CNAME` file on purpose: GitHub ignores it for Actions deployments, and the domain is set in Settings → Pages. Don't re-add one.
 
 ### Images

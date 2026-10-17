@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   // Single source of truth for the public URL: canonicals, OG tags, JSON-LD, sitemap.xml, and
   // robots.txt are all derived from this. To move domains, see README "Changing the domain".
-  site: 'https://velokhaya.labs.ai',
+  site: 'https://velokhaya.com',
   // Astro 7 changed the default to 'jsx', which drops whitespace between a line of text and a
   // following inline element (e.g. "contact us at" + link). Keep the HTML-faithful behaviour.
   compressHTML: true,

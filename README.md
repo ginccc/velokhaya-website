@@ -2,7 +2,7 @@
 
 > **Cycling, done with intention.**
 
-The public website of [Velokhaya Life Cycling Academy](https://velokhaya.labs.ai), a cycling academy in Khayelitsha, Cape Town, that develops young athletes through three integrated pillars: cycling, education, and nutrition.
+The public website of [Velokhaya Life Cycling Academy](https://velokhaya.com), a cycling academy in Khayelitsha, Cape Town, that develops young athletes through three integrated pillars: cycling, education, and nutrition.
 
 It is a static site built with [Astro](https://astro.build) and [Tailwind CSS](https://tailwindcss.com), deployed to GitHub Pages.
 
@@ -92,7 +92,7 @@ Pull requests and other branches are type-checked and built by `.github/workflow
 
 ## Changing the domain
 
-The site currently lives at `velokhaya.labs.ai`. The plan is to move to `velokhaya.com`, and later `velokhaya.org`.
+The site lives at `velokhaya.com` (it was previewed at `velokhaya.labs.ai` before launch). It may later move to `velokhaya.org`.
 
 The site URL is defined once, as `site` in `astro.config.mjs`. Canonical links, Open Graph tags, JSON-LD, `sitemap.xml`, and `robots.txt` all derive from it. Contact email addresses live separately in `src/data/contact.ts`; they only need changing if the mailboxes move too.
 
