@@ -1,12 +1,20 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Quote from '@lucide/astro/icons/quote';
+import teamGroup from '../assets/images/team-group.jpg';
+import siphoPortrait from '../assets/images/team-sipho.png';
+import luthandoPortrait from '../assets/images/team-luthando.jpg';
+import nicPortrait from '../assets/images/hof-nic.jpg';
+import anitaPortrait from '../assets/images/hof-anita.jpg';
+import xolisaPortrait from '../assets/images/hof-xolisa.jpg';
 ---
 
 <BaseLayout
   title="Our Approach | History & Leadership | Velokhaya Life Cycling Academy"
   description="Founded in Khayelitsha in 2003, Velokhaya has grown through consistency, commitment, and clear standards. Our work is defined by structured training and shared expectations."
   canonicalPath="/our-approach/"
-  ogImage="/images/team-group.jpg"
+  ogImage={teamGroup}
 >
 
     <!-- Header -->
@@ -26,8 +34,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                 <div class="order-2 md:order-1">
                     <div class="aspect-[4/3] rounded-2xl shadow-2xl border border-white/10 overflow-hidden">
-                        <img src="/images/team-group.jpg" alt="Velokhaya cycling team standing together in team kit" loading="lazy"
-                            class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500">
+                        <Image src={teamGroup} alt="Velokhaya cycling team standing together in team kit"
+                            widths={[480, 720, 1080, 1440]} sizes="(min-width: 1280px) 650px, (min-width: 768px) 55vw, 110vw"
+                            class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" />
                     </div>
                 </div>
                 <div class="order-1 md:order-2">
@@ -48,7 +57,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                     <div class="flex items-center gap-4 mt-8">
                         <div
                             class="h-12 w-12 rounded-full bg-brand-blue flex items-center justify-center text-white font-bold">
-                            <i data-lucide="quote" class="w-5 h-5"></i>
+                            <Quote class="w-5 h-5" />
                         </div>
                         <p class="text-sm text-gray-500 italic">"Velokhaya is defined not by where it started, but by how it works."
                         </p>
@@ -100,7 +109,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                     <div class="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-brand-red/30"></div>
                 </div>
 
-                <!-- 2026 -->
+                <!-- 2025 -->
                 <div class="relative group">
                     <div
                         class="bg-brand-dark border border-white/20 rounded-2xl p-8 h-full hover:border-white/50 transition-all hover:shadow-lg hover:shadow-white/10">
@@ -134,9 +143,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 <div
                     class="bg-brand-black p-6 rounded-2xl border border-white/5 hover:border-brand-yellow/50 transition-all group">
                     <div class="h-96 bg-gray-800 rounded-xl mb-6 overflow-hidden relative">
-                        <img src="/images/team-sipho.png"
-                            alt="Sipho Mona, General Manager of Velokhaya Life Cycling Academy" loading="lazy"
-                            class="w-full h-full object-cover object-top opacity-70 group-hover:opacity-100 transition-opacity">
+                        <Image src={siphoPortrait}
+                            alt="Sipho Mona, General Manager of Velokhaya Life Cycling Academy"
+                            widths={[400, 800]} sizes="(min-width: 640px) 400px, 100vw"
+                            class="w-full h-full object-cover object-top opacity-70 group-hover:opacity-100 transition-opacity" />
                     </div>
                     <h3 class="text-xl font-bold text-white">Sipho Mona</h3>
                     <p class="text-brand-yellow text-sm font-medium mb-4">General Manager</p>
@@ -148,9 +158,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 <div
                     class="bg-brand-black p-6 rounded-2xl border border-white/5 hover:border-brand-red/50 transition-all group">
                     <div class="h-96 bg-gray-800 rounded-xl mb-6 overflow-hidden relative">
-                        <img src="/images/team-luthando.jpg" alt="Luthando Kaka, Acting Board Member of Velokhaya"
-                            loading="lazy"
-                            class="w-full h-full object-cover object-top opacity-70 group-hover:opacity-100 transition-opacity">
+                        <Image src={luthandoPortrait} alt="Luthando Kaka, Board Member of Velokhaya"
+                            widths={[400, 640]} sizes="(min-width: 640px) 400px, 100vw"
+                            class="w-full h-full object-cover object-top opacity-70 group-hover:opacity-100 transition-opacity" />
                     </div>
                     <h3 class="text-xl font-bold text-white">Luthando Kaka</h3>
                     <p class="text-brand-red text-sm font-medium mb-4">Board Member & Business Leader</p>
@@ -169,8 +179,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 <div
                     class="p-6 bg-brand-dark rounded-2xl border border-white/10 hover:border-brand-yellow transition-all group">
                     <div class="w-20 h-20 mx-auto bg-gray-800 rounded-full mb-4 overflow-hidden">
-                        <img src="/images/hof-nic.png" alt="Nicholas Dlamini, Tour de France cyclist and Olympian"
-                            class="w-full h-full object-cover">
+                        <Image src={nicPortrait} alt="Nicholas Dlamini, Tour de France cyclist and Olympian" width={240} height={240}
+                            class="w-full h-full object-cover" />
                     </div>
                     <h3 class="text-white font-bold text-lg">Nicholas Dlamini</h3>
                     <p class="text-brand-yellow text-xs uppercase tracking-wider mb-2">Olympian & Tour de France</p>
@@ -182,8 +192,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 <div
                     class="p-6 bg-brand-dark rounded-2xl border border-white/10 hover:border-brand-red transition-all group">
                     <div class="w-20 h-20 mx-auto bg-gray-800 rounded-full mb-4 overflow-hidden">
-                        <img src="/images/hof-anita.png" alt="Anita Zenani, World #6 ranked BMX rider"
-                            class="w-full h-full object-cover">
+                        <Image src={anitaPortrait} alt="Anita Zenani, World #6 ranked BMX rider" width={240} height={240}
+                            class="w-full h-full object-cover" />
                     </div>
                     <h3 class="text-white font-bold text-lg">Anita Zenani</h3>
                     <p class="text-brand-red text-xs uppercase tracking-wider mb-2">World #6 BMX</p>
@@ -195,8 +205,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 <div
                     class="p-6 bg-brand-dark rounded-2xl border border-white/10 hover:border-brand-blue transition-all group">
                     <div class="w-20 h-20 mx-auto bg-gray-800 rounded-full mb-4 overflow-hidden">
-                        <img src="/images/hof-xolisa.jpg" alt="Xolisa Makubalo, Head BMX Coach at Velokhaya"
-                            class="w-full h-full object-cover">
+                        <Image src={xolisaPortrait} alt="Xolisa Makubalo, Head BMX Coach at Velokhaya" width={240} height={240}
+                            class="w-full h-full object-cover" />
                     </div>
                     <h3 class="text-white font-bold text-lg">Xolisa Makubalo</h3>
                     <p class="text-brand-blue text-xs uppercase tracking-wider mb-2">Head BMX Coach</p>

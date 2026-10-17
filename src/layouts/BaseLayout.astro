@@ -1,32 +1,38 @@
 ---
 import '../styles/global.css';
 import '../styles/cookie-consent.css';
+import { Font, getImage } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import AuthModal from '../components/AuthModal.astro';
+import defaultOgImage from '../assets/images/hero-riders.jpg';
 
 interface Props {
   title: string;
   description: string;
   canonicalPath?: string;
-  ogImage?: string;
+  ogImage?: ImageMetadata;
+  /** Keep the page out of search results (e.g. the 404 page). Also drops the canonical link. */
+  noindex?: boolean;
 }
 
-const { 
-  title, 
-  description, 
-  canonicalPath = '/', 
-  ogImage = '/images/hero-riders.jpg' 
+const {
+  title,
+  description,
+  canonicalPath = '/',
+  ogImage = defaultOgImage,
+  noindex = false,
 } = Astro.props;
 
-const siteUrl = 'https://velokhaya.labs.ai';
-const canonicalUrl = `${siteUrl}${canonicalPath}`;
-const ogImageUrl = `${siteUrl}${ogImage}`;
+const canonicalUrl = new URL(canonicalPath, Astro.site).href;
+// 1200x630 is the size Facebook, LinkedIn, and X expect for large link previews.
+const og = await getImage({ src: ogImage, width: 1200, height: 630, fit: 'cover', format: 'jpg' });
+const ogImageUrl = new URL(og.src, Astro.site).href;
 const currentPath = Astro.url.pathname;
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en-ZA" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
@@ -39,21 +45,26 @@ const currentPath = Astro.url.pathname;
     <meta name="geo.region" content="ZA-WC">
     <meta name="geo.placename" content="Khayelitsha, Cape Town">
 
+    {noindex && <meta name="robots" content="noindex">}
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content={canonicalUrl}>
+    <meta property="og:site_name" content="Velokhaya Life Cycling Academy">
+    <meta property="og:locale" content="en_ZA">
+    {!noindex && <meta property="og:url" content={canonicalUrl}>}
     <meta property="og:title" content={title}>
     <meta property="og:description" content={description}>
     <meta property="og:image" content={ogImageUrl}>
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content={canonicalUrl}>
-    <meta property="twitter:title" content={title}>
-    <meta property="twitter:description" content={description}>
-    <meta property="twitter:image" content={ogImageUrl}>
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content={title}>
+    <meta name="twitter:description" content={description}>
+    <meta name="twitter:image" content={ogImageUrl}>
 
-    <link rel="canonical" href={canonicalUrl}>
+    {!noindex && <link rel="canonical" href={canonicalUrl}>}
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -61,45 +72,45 @@ const currentPath = Astro.url.pathname;
     <meta name="theme-color" content="#000000">
     <meta name="msapplication-TileColor" content="#000000">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-    <script is:inline src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
-    
+    <!-- Preload only the upright face; italic is used in a couple of quotes and loads on demand. -->
+    <Font cssVariable="--font-inter" preload={[{ style: 'normal' }]} />
+
     <!-- Schema.org JSON-LD -->
     <slot name="schema" />
 </head>
 
 <body class="bg-brand-black text-white antialiased selection:bg-brand-red selection:text-white">
 
+    <a href="#main-content"
+        class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-brand-yellow focus:text-brand-black focus:px-4 focus:py-2 focus:rounded-lg focus:font-bold">
+        Skip to content
+    </a>
+
     <Header currentPath={currentPath} />
 
-    <main id="main-content">
+    <main id="main-content" tabindex="-1" class="focus:outline-none">
         <slot />
     </main>
 
     <Footer />
 
-    <AuthModal />
-
-    <!-- Cookie consent -->
-    <script is:inline src="/scripts/cookie-consent.js"></script>
+    <!-- Cookie consent (bundled; the analytics SDK is a lazy chunk loaded only after consent) -->
+    <script src="../scripts/cookie-consent.ts"></script>
 
     <script is:inline>
-        lucide.createIcons();
         // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuIcon = document.getElementById('menu-icon');
         const closeIcon = document.getElementById('close-icon');
 
-        if (mobileMenuBtn) {
+        if (mobileMenuBtn && mobileMenu) {
             mobileMenuBtn.addEventListener('click', () => {
-                const isOpen = mobileMenu.classList.toggle('hidden');
-                menuIcon.classList.toggle('hidden');
-                closeIcon.classList.toggle('hidden');
-                mobileMenuBtn.setAttribute('aria-expanded', !isOpen);
+                const isOpen = !mobileMenu.classList.toggle('hidden');
+                if (menuIcon) menuIcon.classList.toggle('hidden', isOpen);
+                if (closeIcon) closeIcon.classList.toggle('hidden', !isOpen);
+                mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
+                mobileMenuBtn.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
             });
         }
 
@@ -120,8 +131,8 @@ const currentPath = Astro.url.pathname;
             }
         }
 
-        window.addEventListener('scroll', updateNavbar);
-        window.addEventListener('resize', updateNavbar);
+        window.addEventListener('scroll', updateNavbar, { passive: true });
+        window.addEventListener('resize', updateNavbar, { passive: true });
         updateNavbar();
     </script>
 </body>

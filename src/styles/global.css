@@ -16,8 +16,13 @@
   --accent-darker: #cc1b20;
   --brand-yellow: #FFD700;
 
-  --font-sans: 'Inter', sans-serif;
-  
+  /* Self-hosted via the Astro Fonts API (see astro.config.mjs) */
+  --font-sans: var(--font-inter); /* already includes a metric-matched fallback and sans-serif */
+
+  /* Secondary text colour. Tailwind's default gray-500 is ~4.3:1 on black and ~3.7:1 on
+     brand-dark, below WCAG AA (4.5:1). This lifts it to ~5.8:1 / ~4.9:1 while staying
+     visibly dimmer than gray-400, so the existing text hierarchy is unchanged. */
+  --color-gray-500: oklch(62% 0.027 264.364);
 }
 
 @layer base {

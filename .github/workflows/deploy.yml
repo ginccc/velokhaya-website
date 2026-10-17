@@ -19,9 +19,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
       - name: Install, build, and upload
         uses: withastro/action@v6
+        with:
+          # Keep in sync with ci.yml (current Node LTS)
+          node-version: 24
 
   deploy:
     needs: build
