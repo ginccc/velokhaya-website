@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import { Picture } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import heroRiders from '../assets/images/hero-riders.jpg';
 import pelotonRider from '../assets/images/peloton-rider.jpg';
@@ -36,6 +36,7 @@ const schema = {
 
 <BaseLayout
   title="Velokhaya Life Cycling Academy | Cycling with a Purpose | Khayelitsha"
+  socialTitle="Velokhaya Life Cycling Academy"
   description="Developing athletic and personal excellence through cycling, education, and nutrition. Building champions on and off the bike in Khayelitsha."
   canonicalPath="/"
 >
@@ -48,8 +49,8 @@ const schema = {
             <div class="absolute inset-0 z-0">
                 <div class="absolute inset-0 bg-gradient-to-r from-brand-black via-brand-black/80 to-brand-black/20 z-10">
                 </div>
-                <Image src={heroRiders} alt="Velokhaya cyclists riding in formation through Khayelitsha"
-                    widths={[640, 960, 1280, 1600, 2048]} sizes="max(100vw, 100vh)" priority
+                <Picture formats={['avif', 'webp']} src={heroRiders} alt="Velokhaya cyclists riding in formation through Khayelitsha"
+                    widths={[640, 960, 1280, 1600]} sizes="max(100vw, 100vh)" priority
                     class="w-full h-full object-cover object-[center_20%] md:object-[center_30%] lg:object-[center_25%]" />
             </div>
             <div class="relative z-20 max-w-7xl mx-auto px-6 sm:px-8 lg:px-8 w-full">
@@ -112,7 +113,7 @@ const schema = {
                     </div>
                     <div
                         class="relative h-96 w-full rounded-2xl shadow-2xl border border-white/10 overflow-hidden group">
-                        <Image src={pelotonRider} alt="Velokhaya rider in team kit ready to ride"
+                        <Picture formats={['avif', 'webp']} src={pelotonRider} alt="Velokhaya rider in team kit ready to ride"
                             widths={[400, 640, 960, 1280]} sizes="(min-width: 1280px) 620px, (min-width: 768px) 50vw, 100vw"
                             class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" />
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -195,7 +196,7 @@ const schema = {
                         </blockquote>
                         <div class="flex items-center gap-4">
                             <div class="w-14 h-14 rounded-full bg-gray-800 overflow-hidden">
-                                <Image src={nicPortrait} alt="Nicholas Dlamini" width={168} height={168}
+                                <Picture formats={['avif', 'webp']} src={nicPortrait} alt="Nicholas Dlamini" width={168} height={168}
                                     class="w-full h-full object-cover" />
                             </div>
                             <div>
